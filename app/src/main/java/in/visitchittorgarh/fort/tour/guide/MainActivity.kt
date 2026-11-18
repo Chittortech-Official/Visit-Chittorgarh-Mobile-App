@@ -1,5 +1,6 @@
-package in.visitchittorgarh.fort.tour.guide
+package `in`.visitchittorgarh.fort.tour.guide
 
+import `in`.visitchittorgarh.fort.tour.guide.R
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
