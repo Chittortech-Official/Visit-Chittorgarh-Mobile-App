@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chittorgarh Fort: Travel Guide</string>
+    <string name="website_url">https://www.visitchittorgarh.in/</string>
+    <string name="no_internet_title">You are currently offline</string>
+    <string name="no_internet_desc">Chittorgarh Fort hill network can be weak in some areas. Please check your data connection or reconnect to Wi-Fi.</string>
+    <string name="offline_emergency">Emergency Tourist Helpline: +91 7597451057&#10;Police: 100 | Fort Control Room: 01472-241564</string>
+    <string name="retry">Retry Connection</string>
+</resources>
