@@ -225,10 +225,6 @@ class MainActivity : AppCompatActivity() {
         editSearch = findViewById(R.id.editSearch)
         recyclerMonuments = findViewById(R.id.recyclerMonuments)
 
-        findViewById<View>(R.id.cardExploreVipBanner)?.setOnClickListener {
-            bottomNavigation.selectedItemId = R.id.nav_services
-        }
-
         monumentAdapter = MonumentAdapter(
             allMonuments = ChittorgarhDataRepository.monuments,
             favoritesManager = favoritesManager,
