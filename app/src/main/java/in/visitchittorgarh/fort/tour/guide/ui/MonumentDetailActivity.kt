@@ -160,10 +160,10 @@ class MonumentDetailActivity : AppCompatActivity() {
         listOf(btnSpeedSlow, btnSpeedNormal, btnSpeedFast).forEach { btn ->
             if (btn == selected) {
                 btn.setBackgroundResource(R.drawable.bg_chip_selected)
-                btn.setTextColor(ContextCompat.getColor(this, R.color.primary_dark))
+                btn.setTextColor(ContextCompat.getColor(this, R.color.surface_white))
             } else {
                 btn.setBackgroundResource(R.drawable.bg_chip_unselected)
-                btn.setTextColor(ContextCompat.getColor(this, R.color.text_white))
+                btn.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
             }
         }
     }

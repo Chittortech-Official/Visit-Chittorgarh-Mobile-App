@@ -44,16 +44,24 @@ class ServiceAdapter(
             txtServiceDetails.text = item.details
 
             when (item.actionType) {
+                "WHATSAPP_VIP" -> {
+                    btnServiceAction.text = "Book VIP Tour on WhatsApp"
+                    btnServiceAction.setIconResource(R.drawable.ic_whatsapp)
+                }
+                "WHATSAPP_PHOTO" -> {
+                    btnServiceAction.text = "Book Photo Tour on WhatsApp"
+                    btnServiceAction.setIconResource(R.drawable.ic_whatsapp)
+                }
                 "WHATSAPP_GUIDE" -> {
-                    btnServiceAction.text = "Book Mewari Guide via WhatsApp"
+                    btnServiceAction.text = "Book Guide on WhatsApp"
                     btnServiceAction.setIconResource(R.drawable.ic_whatsapp)
                 }
                 "WHATSAPP_TAXI" -> {
-                    btnServiceAction.text = "Inquire & Book Cab via WhatsApp"
+                    btnServiceAction.text = "Book Cab on WhatsApp"
                     btnServiceAction.setIconResource(R.drawable.ic_whatsapp)
                 }
                 else -> {
-                    btnServiceAction.text = "Explore Authentic Flavors"
+                    btnServiceAction.text = "Explore Authentic Dining"
                     btnServiceAction.setIconResource(R.drawable.ic_nav_services)
                 }
             }

@@ -49,7 +49,7 @@ class AudioStoryAdapter(
             imgThumb.setImageResource(monument.imageRes)
             txtAudioTitle.text = monument.name
             txtAudioHindi.text = monument.hindiName
-            txtAudioCategory.text = "🎧 Audio Story • 2 mins narration"
+            txtAudioCategory.text = "🎧 2 min story • Mewar Heritage"
 
             val isPlaying = currentPlayingId == monument.id
 

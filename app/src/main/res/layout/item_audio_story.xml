@@ -57,12 +57,14 @@
 
             <TextView
                 android:id="@+id/txtAudioCategory"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="🎧 Audio Story • 2 mins narration"
+                android:text="🎧 2 min story • Mewar Heritage"
                 android:textColor="@color/text_muted"
-                android:textSize="11.5sp" />
+                android:textSize="11.5sp"
+                android:maxLines="1"
+                android:ellipsize="end" />
         </LinearLayout>
 
         <!-- Play / Stop Button -->

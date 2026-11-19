@@ -318,10 +318,30 @@ object ChittorgarhDataRepository {
 
     val serviceItems: List<ServiceItem> = listOf(
         ServiceItem(
+            id = "vip_foreign_tour",
+            title = "Foreign Guest VIP Heritage Experience",
+            subtitle = "Multilingual Historian + AC Sedan + Tickets",
+            price = "₹2,800 – ₹4,500 (~$35 – $55 USD)",
+            details = "All-inclusive royal experience for international visitors. Govt-approved English, French & German speaking historian, sanitized AC private cab, line-skip monument assistance & authentic Mewari heritage lunch.",
+            imageRes = R.drawable.fort,
+            actionType = "WHATSAPP_VIP"
+        ),
+
+        ServiceItem(
+            id = "photo_drone_tour",
+            title = "Sunrise & Golden Hour Photography Tour",
+            subtitle = "Curated Vistas for Creators & Photographers",
+            price = "₹1,800 – ₹2,500 (~$22 – $30 USD)",
+            details = "Exclusive 3-hour dawn/dusk vantage circuit covering Gaumukh cliffside, Vijay Stambha lighting & hidden fort ramparts. Led by veteran local heritage photographers.",
+            imageRes = R.drawable.vijay_stambh_new,
+            actionType = "WHATSAPP_PHOTO"
+        ),
+
+        ServiceItem(
             id = "guide_booking",
             title = "Authorized Mewari Tour Guide",
             subtitle = "Govt. & ASI Approved Historian Guides",
-            price = "From ₹600 – ₹1,200",
+            price = "From ₹600 – ₹1,200 (~$8 – $15 USD)",
             details = "Certified local Mewari guides with deep knowledge of fort history, hidden passages, architecture, and legends. Available in Hindi, English, Gujarati, and international languages.",
             imageRes = R.drawable.fort,
             actionType = "WHATSAPP_GUIDE"
@@ -351,7 +371,7 @@ object ChittorgarhDataRepository {
             id = "taxi_tempo",
             title = "Tempo Traveller (12-16 Seater)",
             subtitle = "Group & Family Tour Coach",
-            price = "On Request (Custom Packages)",
+            price = "On Request (Custom Group Packages)",
             details = "Push-back seats, ample luggage space, and AC. Perfect for tour groups, wedding guests, and school excursions visiting Mewar.",
             imageRes = R.drawable.tempo_traveller,
             actionType = "WHATSAPP_TAXI"
@@ -361,7 +381,7 @@ object ChittorgarhDataRepository {
             id = "mewari_food",
             title = "Authentic Mewari Dal Baati Churma",
             subtitle = "Pure Desi Ghee Culinary Experience",
-            price = "Vocal for Local",
+            price = "Traditional Dining • Vocal for Local",
             details = "Crispy oven-baked baatis dipped in warm desi ghee, served with spicy panchmel dal, garlic chutney, and crushed sweet churma. Best enjoyed at verified local eateries.",
             imageRes = R.drawable.dal_batti_churma_new,
             actionType = "OPEN_LINK"

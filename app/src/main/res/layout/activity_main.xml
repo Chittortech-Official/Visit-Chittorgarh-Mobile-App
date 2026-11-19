@@ -33,17 +33,17 @@
                 <!-- 🍔 Hamburger Menu Button -->
                 <ImageView
                     android:id="@+id/btnHamburger"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="8dp"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_btn_circle_hamburger"
+                    android:padding="9dp"
                     android:src="@drawable/ic_menu_hamburger"
                     android:contentDescription="Open Navigation Menu" />
 
                 <!-- Logo & Brand Header -->
                 <ImageView
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:layout_marginStart="8dp"
                     android:src="@drawable/chittorgarh_tourism_logo"
                     android:contentDescription="Visit Chittorgarh Crest" />
@@ -81,8 +81,8 @@
                     android:id="@+id/btnHeaderWhatsApp"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="7dp"
+                    android:background="@drawable/bg_btn_circle_whatsapp"
+                    android:padding="8dp"
                     android:src="@drawable/ic_whatsapp"
                     android:contentDescription="WhatsApp Support" />
 
@@ -91,9 +91,9 @@
                     android:id="@+id/btnHeaderCall"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:layout_marginStart="4dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="8dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_btn_circle_call"
+                    android:padding="9dp"
                     android:src="@drawable/ic_phone"
                     app:tint="@color/accent_gold"
                     android:contentDescription="Call Helpline" />
@@ -286,8 +286,8 @@
                     app:cardBackgroundColor="@color/surface_white"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="3dp"
-                    app:strokeColor="@color/accent_gold"
-                    app:strokeWidth="1.2dp">
+                    app:strokeColor="@color/border_subtle"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -438,8 +438,8 @@
                         app:cardBackgroundColor="@color/surface_white"
                         app:cardCornerRadius="18dp"
                         app:cardElevation="3dp"
-                        app:strokeColor="@color/accent_gold"
-                        app:strokeWidth="1.2dp">
+                        app:strokeColor="@color/border_subtle"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -473,14 +473,16 @@
                                 <com.google.android.material.button.MaterialButton
                                     android:id="@+id/btnCallTouristHelpline"
                                     android:layout_width="0dp"
-                                    android:layout_height="44dp"
+                                    android:layout_height="46dp"
                                     android:layout_weight="1"
                                     android:layout_marginEnd="6dp"
+                                    android:insetTop="0dp"
+                                    android:insetBottom="0dp"
                                     android:backgroundTint="@color/surface_secondary"
-                                    android:text="Helpline Call"
+                                    android:text="Helpline"
                                     android:textAllCaps="false"
                                     android:textColor="@color/text_primary"
-                                    android:textSize="12sp"
+                                    android:textSize="12.5sp"
                                     android:textStyle="bold"
                                     app:cornerRadius="10dp"
                                     app:icon="@drawable/ic_phone"
@@ -490,14 +492,16 @@
                                 <com.google.android.material.button.MaterialButton
                                     android:id="@+id/btnServiceWhatsApp"
                                     android:layout_width="0dp"
-                                    android:layout_height="44dp"
+                                    android:layout_height="46dp"
                                     android:layout_weight="1"
                                     android:layout_marginStart="6dp"
+                                    android:insetTop="0dp"
+                                    android:insetBottom="0dp"
                                     android:backgroundTint="@color/whatsapp_green"
-                                    android:text="WhatsApp Support"
+                                    android:text="WhatsApp"
                                     android:textAllCaps="false"
                                     android:textColor="@color/surface_white"
-                                    android:textSize="12sp"
+                                    android:textSize="12.5sp"
                                     android:textStyle="bold"
                                     app:cornerRadius="10dp"
                                     app:icon="@drawable/ic_whatsapp"
@@ -516,13 +520,15 @@
                                     android:id="@+id/btnCallFortControl"
                                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                                     android:layout_width="0dp"
-                                    android:layout_height="44dp"
+                                    android:layout_height="46dp"
                                     android:layout_weight="1"
                                     android:layout_marginEnd="6dp"
-                                    android:text="Fort Control Room"
+                                    android:insetTop="0dp"
+                                    android:insetBottom="0dp"
+                                    android:text="Control Room"
                                     android:textAllCaps="false"
                                     android:textColor="@color/accent_gold"
-                                    android:textSize="11sp"
+                                    android:textSize="12sp"
                                     android:textStyle="bold"
                                     app:cornerRadius="10dp"
                                     app:strokeColor="@color/accent_gold" />
@@ -531,13 +537,15 @@
                                     android:id="@+id/btnCallPolice"
                                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                                     android:layout_width="0dp"
-                                    android:layout_height="44dp"
+                                    android:layout_height="46dp"
                                     android:layout_weight="1"
                                     android:layout_marginStart="6dp"
+                                    android:insetTop="0dp"
+                                    android:insetBottom="0dp"
                                     android:text="Police (112)"
                                     android:textAllCaps="false"
                                     android:textColor="@color/ruby_crimson"
-                                    android:textSize="11sp"
+                                    android:textSize="12sp"
                                     android:textStyle="bold"
                                     app:cornerRadius="10dp"
                                     app:strokeColor="@color/ruby_crimson" />
@@ -707,7 +715,7 @@
             app:itemIconSize="22dp"
             app:itemIconTint="@drawable/bottom_nav_selector"
             app:itemTextColor="@drawable/bottom_nav_selector"
-            app:labelVisibilityMode="auto"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_nav_menu" />
 
     </LinearLayout>

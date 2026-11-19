@@ -8,7 +8,7 @@
     <item
         android:id="@+id/nav_audio"
         android:icon="@drawable/ic_nav_audio"
-        android:title="Audio Guide" />
+        android:title="Audio" />
 
     <item
         android:id="@+id/nav_itinerary"
@@ -18,6 +18,6 @@
     <item
         android:id="@+id/nav_services"
         android:icon="@drawable/ic_nav_services"
-        android:title="Services &amp; Info" />
+        android:title="Services" />
 </menu>
 

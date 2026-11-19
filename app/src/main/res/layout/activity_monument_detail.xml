@@ -38,51 +38,63 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                app:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetEnd="0dp"
+                app:contentInsetRight="0dp"
                 app:layout_collapseMode="pin">
 
-                <ImageView
-                    android:id="@+id/btnBack"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_chip_unselected"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_arrow_back"
-                    app:tint="@color/text_primary"
-                    android:contentDescription="Back" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp">
 
-                <TextView
-                    android:id="@+id/txtToolbarTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:text="Monument Details"
-                    android:textColor="@color/surface_white"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    <ImageView
+                        android:id="@+id/btnBack"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_chip_unselected"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_arrow_back"
+                        app:tint="@color/text_primary"
+                        android:contentDescription="Back" />
 
-                <ImageView
-                    android:id="@+id/btnShare"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/bg_chip_unselected"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_share"
-                    app:tint="@color/text_primary"
-                    android:contentDescription="Share" />
+                    <TextView
+                        android:id="@+id/txtToolbarTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="Monument Details"
+                        android:textColor="@color/surface_white"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
 
-                <ImageView
-                    android:id="@+id/btnDetailFavorite"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/bg_chip_unselected"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_favorite_border"
-                    app:tint="@color/ruby_crimson"
-                    android:contentDescription="Favorite" />
+                    <ImageView
+                        android:id="@+id/btnShare"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_chip_unselected"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_share"
+                        app:tint="@color/text_primary"
+                        android:contentDescription="Share" />
+
+                    <ImageView
+                        android:id="@+id/btnDetailFavorite"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_chip_unselected"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_favorite_border"
+                        app:tint="@color/ruby_crimson"
+                        android:contentDescription="Favorite" />
+                </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
 
             <!-- Bottom of CollapsingToolbar Info -->
@@ -146,8 +158,8 @@
                 app:cardBackgroundColor="@color/surface_white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="3dp"
-                app:strokeColor="@color/accent_gold"
-                app:strokeWidth="1.2dp">
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"

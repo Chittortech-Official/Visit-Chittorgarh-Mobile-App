@@ -93,14 +93,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Edge-to-edge: app draws behind system bars, we adjust manually
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContentView(R.layout.activity_main)
 
         favoritesManager = FavoritesManager(this)
 
         initViews()
-        setupWindowInsets()   // ← responsive system bar padding
         setupDrawer()
         setupAudio()
         setupBottomNavigation()
@@ -135,24 +132,6 @@ class MainActivity : AppCompatActivity() {
 
         btnHeaderCall.setOnClickListener {
             dialNumber(HELPLINE_NUMBER)
-        }
-    }
-
-    /**
-     * Apply WindowInsets so the app is fully responsive across:
-     * - Phones with gesture navigation (extra bottom inset)
-     * - Phones with 3-button nav (smaller inset)
-     * - Notched/punch-hole screens (top inset)
-     */
-    private fun setupWindowInsets() {
-        val appBarLayout = findViewById<View>(R.id.appBarLayout)
-        ViewCompat.setOnApplyWindowInsetsListener(drawerLayout) { _, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // Status bar → pad the AppBar so content doesn't go under notch
-            appBarLayout?.setPadding(0, systemBars.top, 0, 0)
-            // Gesture/nav bar → pad BottomNav so it doesn't hide behind nav bar
-            bottomNavigation.setPadding(0, 0, 0, systemBars.bottom)
-            insets
         }
     }
 
@@ -408,6 +387,8 @@ class MainActivity : AppCompatActivity() {
         recyclerServices = findViewById(R.id.recyclerServices)
         serviceAdapter = ServiceAdapter(ChittorgarhDataRepository.serviceItems) { serviceItem ->
             when (serviceItem.actionType) {
+                "WHATSAPP_VIP" -> openWhatsApp("Hello Visit Chittorgarh! I am an international traveler / VIP guest planning a tour of Chittorgarh Fort. I want to book the Foreign Guest VIP Heritage Experience. Please share availability and pricing details.")
+                "WHATSAPP_PHOTO" -> openWhatsApp("Hello Visit Chittorgarh! I want to book the Sunrise & Golden Hour Photography Tour for Chittorgarh Fort. Please share timing and guide details.")
                 "WHATSAPP_GUIDE" -> openWhatsApp("Namaste! I would like to book an Authorized Mewari Tour Guide for Chittorgarh Fort.")
                 "WHATSAPP_TAXI" -> openWhatsApp("Namaste! I would like to inquire about booking a ${serviceItem.title} for Chittorgarh sight-seeing.")
                 else -> startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE_URL)))
