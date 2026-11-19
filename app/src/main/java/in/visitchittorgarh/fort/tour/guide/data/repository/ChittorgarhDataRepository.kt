@@ -351,7 +351,7 @@ object ChittorgarhDataRepository {
             id = "taxi_sedan",
             title = "Sedan Taxi (Dzire / Etios)",
             subtitle = "Sanitized AC Private Cab",
-            price = "₹1,500 local fort / ₹2,800 Udaipur transfer",
+            price = "₹1,500 (~$18 USD) local / ₹2,800 (~$34 USD) Udaipur",
             details = "Comfortable 4-seater air-conditioned sedan for exploring the 700-acre fort plateau with knowledgeable driver. Includes fuel, parking, and toll.",
             imageRes = R.drawable.sedan_taxi,
             actionType = "WHATSAPP_TAXI"
@@ -361,7 +361,7 @@ object ChittorgarhDataRepository {
             id = "taxi_suv",
             title = "SUV Taxi (Innova / Ertiga)",
             subtitle = "Spacious 6-7 Seater for Families",
-            price = "₹2,200 local fort / ₹3,800 Udaipur transfer",
+            price = "₹2,200 (~$26 USD) local / ₹3,800 (~$45 USD) Udaipur",
             details = "Premium family-sized SUV with experienced hill drivers. Ideal for group sight-seeing and round trips to Sanwariya Seth Temple or Menal Waterfalls.",
             imageRes = R.drawable.suv_taxi,
             actionType = "WHATSAPP_TAXI"
@@ -371,7 +371,7 @@ object ChittorgarhDataRepository {
             id = "taxi_tempo",
             title = "Tempo Traveller (12-16 Seater)",
             subtitle = "Group & Family Tour Coach",
-            price = "On Request (Custom Group Packages)",
+            price = "₹3,500 – ₹5,500 (~$42 – $65 USD) Group Tour",
             details = "Push-back seats, ample luggage space, and AC. Perfect for tour groups, wedding guests, and school excursions visiting Mewar.",
             imageRes = R.drawable.tempo_traveller,
             actionType = "WHATSAPP_TAXI"

@@ -151,8 +151,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.drawer_services, R.id.drawer_tickets -> {
                     bottomNavigation.selectedItemId = R.id.nav_services
                 }
+                R.id.drawer_vip_tour -> {
+                    openWhatsApp("Hello Visit Chittorgarh! 🌟\n\nI am an international visitor / VIP guest planning a tour of Chittorgarh Fort.\n\nPackage: Foreign Guest VIP Heritage Experience (~$35 USD)\nIncludes: Multilingual Historian (English/French/German) + Sanitized AC Sedan + Tickets Coordination + Heritage Lunch.\n\nPlease share availability and slot confirmation.")
+                }
+                R.id.drawer_photo_tour -> {
+                    openWhatsApp("Hello Visit Chittorgarh! 🌅\n\nI am a photographer / creator interested in the Sunrise & Golden Hour Photography Tour (~$22 USD) of Chittorgarh Fort.\n\nPlease confirm availability and photographer guide details.")
+                }
                 R.id.drawer_cabs -> {
-                    openWhatsApp("Hello Visit Chittorgarh! I would like to book a private cab for the Chittorgarh Fort tour.")
+                    openWhatsApp("Namaste Visit Chittorgarh! 🚕\n\nI would like to book a private cab for the Chittorgarh Fort tour. Please share driver details and rates.")
                 }
                 R.id.drawer_emergency -> {
                     dialNumber(HELPLINE_NUMBER)
@@ -218,6 +224,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupExploreTab() {
         editSearch = findViewById(R.id.editSearch)
         recyclerMonuments = findViewById(R.id.recyclerMonuments)
+
+        findViewById<View>(R.id.cardExploreVipBanner)?.setOnClickListener {
+            bottomNavigation.selectedItemId = R.id.nav_services
+        }
 
         monumentAdapter = MonumentAdapter(
             allMonuments = ChittorgarhDataRepository.monuments,
@@ -387,10 +397,28 @@ class MainActivity : AppCompatActivity() {
         recyclerServices = findViewById(R.id.recyclerServices)
         serviceAdapter = ServiceAdapter(ChittorgarhDataRepository.serviceItems) { serviceItem ->
             when (serviceItem.actionType) {
-                "WHATSAPP_VIP" -> openWhatsApp("Hello Visit Chittorgarh! I am an international traveler / VIP guest planning a tour of Chittorgarh Fort. I want to book the Foreign Guest VIP Heritage Experience. Please share availability and pricing details.")
-                "WHATSAPP_PHOTO" -> openWhatsApp("Hello Visit Chittorgarh! I want to book the Sunrise & Golden Hour Photography Tour for Chittorgarh Fort. Please share timing and guide details.")
-                "WHATSAPP_GUIDE" -> openWhatsApp("Namaste! I would like to book an Authorized Mewari Tour Guide for Chittorgarh Fort.")
-                "WHATSAPP_TAXI" -> openWhatsApp("Namaste! I would like to inquire about booking a ${serviceItem.title} for Chittorgarh sight-seeing.")
+                "WHATSAPP_VIP" -> openWhatsApp(
+                    "Hello Visit Chittorgarh! 🌟\n\nI am an international traveler / VIP guest planning a tour of Chittorgarh Fort.\n\n" +
+                    "Package: Foreign Guest VIP Heritage Experience\n" +
+                    "Price: ₹2,800 – ₹4,500 (~$35 – $55 USD)\n" +
+                    "Includes: Approved Multilingual Historian (English/French/German) + Sanitized AC Sedan + Monument Line-skip + Authentic Mewari Lunch.\n\n" +
+                    "Please confirm availability and booking slots."
+                )
+                "WHATSAPP_PHOTO" -> openWhatsApp(
+                    "Hello Visit Chittorgarh! 🌅\n\nI want to book the Sunrise & Golden Hour Photography Tour (~$22 – $30 USD) for Chittorgarh Fort.\n\n" +
+                    "Includes: Curated 3-hour dawn/dusk vantage circuit (Gaumukh cliffside, Vijay Stambha lighting & ramparts).\n\n" +
+                    "Please share photographer guide availability."
+                )
+                "WHATSAPP_GUIDE" -> openWhatsApp(
+                    "Namaste Visit Chittorgarh! 🏛️\n\nI want to book an Authorized Govt & ASI Approved Historian Tour Guide for Chittorgarh Fort.\n\n" +
+                    "Rate: From ₹600 – ₹1,200 (~$8 – $15 USD)\n" +
+                    "Language: English / Hindi\n\n" +
+                    "Please share available guide slots."
+                )
+                "WHATSAPP_TAXI" -> openWhatsApp(
+                    "Namaste Visit Chittorgarh! 🚕\n\nI want to book ${serviceItem.title} (${serviceItem.price}) for Chittorgarh Fort tour.\n\n" +
+                    "Please confirm cab availability and driver contact."
+                )
                 else -> startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE_URL)))
             }
         }

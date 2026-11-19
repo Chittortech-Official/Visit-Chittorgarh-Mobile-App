@@ -19,6 +19,19 @@
             android:title="Cabs, Guides &amp; Services" />
     </group>
 
+    <item android:title="👑 VIP &amp; Foreign Guest Packages">
+        <menu>
+            <item
+                android:id="@+id/drawer_vip_tour"
+                android:icon="@drawable/ic_nav_explore"
+                android:title="VIP Foreign Guest Package (~$35 USD)" />
+            <item
+                android:id="@+id/drawer_photo_tour"
+                android:icon="@drawable/ic_nav_itinerary"
+                android:title="Sunrise &amp; Golden Hour Photo Tour" />
+        </menu>
+    </item>
+
     <item android:title="Visitor Essentials">
         <menu>
             <item

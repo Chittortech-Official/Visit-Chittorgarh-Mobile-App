@@ -15,4 +15,6 @@ app/build/
 build/
 .kotlin/
 *.png
+*.aab
+*.apk
 
