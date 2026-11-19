@@ -64,6 +64,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.MonumentDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VisitChittorgarh" />
+
     </application>
 
 </manifest>

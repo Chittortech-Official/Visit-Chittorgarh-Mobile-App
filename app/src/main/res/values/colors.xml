@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#1A103D</color>
-    <color name="primary_dark">#0F172A</color>
-    <color name="accent_gold">#D97706</color>
+    <!-- Royal Mewari Heritage Color Palette (matching visitchittorgarh.in) -->
+    <color name="primary">#0F172A</color>
+    <color name="primary_dark">#090D16</color>
+    <color name="primary_light">#1E293B</color>
+
+    <!-- Royal Ochre & Amber Gold -->
+    <color name="accent_gold">#C49A32</color>
+    <color name="gold_bright">#DFBA5A</color>
     <color name="gold_light">#F59E0B</color>
-    <color name="background_dark">#0B0F19</color>
-    <color name="surface_card">#1E293B</color>
+    <color name="gold_warm">#D97706</color>
+    <color name="gold_dark">#92400E</color>
+
+    <!-- Rajputana Sandstone & Cream -->
+    <color name="cream_bg">#F8F5EF</color>
+    <color name="cream_card">#FAF7F2</color>
+    <color name="cream_border">#EFE7D9</color>
+    <color name="terracotta_rust">#A65F3D</color>
+
+    <!-- Dark Theme Surfaces -->
+    <color name="background_dark">#0A0E17</color>
+    <color name="surface_card">#131B2B</color>
+    <color name="surface_card_elevated">#1A2438</color>
+    <color name="surface_divider">#24324C</color>
+
+    <!-- Typography -->
     <color name="text_white">#FFFFFF</color>
+    <color name="text_cream">#F5EDE0</color>
     <color name="text_muted">#94A3B8</color>
+    <color name="text_muted_light">#CBD5E1</color>
+    <color name="text_dark">#1E293B</color>
+
+    <!-- Accents & Functional -->
+    <color name="ruby_crimson">#E11D48</color>
+    <color name="emerald_green">#10B981</color>
+    <color name="whatsapp_green">#25D366</color>
+    <color name="transparent">#00000000</color>
+    <color name="scrim_gradient_start">#CC000000</color>
+    <color name="scrim_gradient_end">#00000000</color>
 </resources>

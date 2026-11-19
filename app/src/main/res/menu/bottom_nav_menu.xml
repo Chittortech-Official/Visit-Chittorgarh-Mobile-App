@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_explore"
+        android:icon="@drawable/ic_nav_explore"
+        android:title="Explore" />
+
+    <item
+        android:id="@+id/nav_audio"
+        android:icon="@drawable/ic_nav_audio"
+        android:title="Audio Guide" />
+
+    <item
+        android:id="@+id/nav_itinerary"
+        android:icon="@drawable/ic_nav_itinerary"
+        android:title="Tours" />
+
+    <item
+        android:id="@+id/nav_services"
+        android:icon="@drawable/ic_nav_services"
+        android:title="Services &amp; Info" />
+</menu>
+

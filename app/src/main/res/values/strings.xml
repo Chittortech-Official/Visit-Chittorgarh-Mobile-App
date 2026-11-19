@@ -1,9 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Chittorgarh Fort: Travel Guide</string>
+    <string name="app_name">Visit Chittorgarh</string>
+    <string name="app_tagline">Official Chittorgarh Fort &amp; Mewar Heritage Guide</string>
     <string name="website_url">https://www.visitchittorgarh.in/</string>
-    <string name="no_internet_title">You are currently offline</string>
-    <string name="no_internet_desc">Chittorgarh Fort hill network can be weak in some areas. Please check your data connection or reconnect to Wi-Fi.</string>
-    <string name="offline_emergency">Emergency Tourist Helpline: +91 7597451057&#10;Police: 100 | Fort Control Room: 01472-241564</string>
-    <string name="retry">Retry Connection</string>
+
+    <!-- Explore Screen -->
+    <string name="search_hint">Search monuments, palaces, temples...</string>
+    <string name="hero_title">Pride of Rajputana</string>
+    <string name="hero_subtitle">Explore India\'s largest 700-acre UNESCO citadel</string>
+    <string name="stat_acres">700 Acres</string>
+    <string name="stat_waterbodies">65+ Water Bodies</string>
+    <string name="stat_gates">7 Royal Pols</string>
+    <string name="stat_unesco">UNESCO Site</string>
+
+    <!-- Categories -->
+    <string name="cat_all">All Sites</string>
+    <string name="cat_palaces">Palaces</string>
+    <string name="cat_towers">Victory Towers</string>
+    <string name="cat_temples">Sacred Temples</string>
+    <string name="cat_waterbodies">Reservoirs</string>
+    <string name="cat_gates">Historic Gates</string>
+
+    <!-- Audio Guide -->
+    <string name="audio_guide_title">Mewari Heritage Audio Guide</string>
+    <string name="audio_guide_subtitle">Listen to glorious tales of Maharana Kumbha, Rani Padmini &amp; Meera Bai</string>
+    <string name="now_playing">Now Narrating</string>
+    <string name="speech_rate_normal">1.0x Speed</string>
+    <string name="speech_rate_slow">0.85x Speed</string>
+    <string name="speech_rate_fast">1.2x Speed</string>
+
+    <!-- Tours & Itineraries -->
+    <string name="itineraries_title">Curated Fort Circuits</string>
+    <string name="itineraries_subtitle">Self-guided walking &amp; driving routes designed for tourists</string>
+    <string name="start_tour_in_maps">Start Circuit in Google Maps</string>
+
+    <!-- Services & Info -->
+    <string name="services_title">Tourist Services &amp; Essentials</string>
+    <string name="services_subtitle">Verified guides, sanitized cabs, ASI tickets &amp; fort helplines</string>
+    <string name="book_guide_whatsapp">Book Verified Guide via WhatsApp</string>
+    <string name="book_taxi_whatsapp">Book Fort / Udaipur Taxi</string>
+    <string name="call_tourist_helpline">Call Tourist Helpline</string>
+    <string name="call_fort_control">Fort Control Room</string>
+    <string name="call_police">Tourist Police (112)</string>
+    <string name="call_ambulance">Ambulance (108)</string>
+
+    <!-- Ticket & Timings -->
+    <string name="timings_info">Fort Open: Daily 4:00 AM – 10:00 PM&#10;Monuments &amp; Museum: 9:00 AM – 5:00 PM</string>
+    <string name="tickets_info">Indian Citizens: ₹40 | Foreign Tourists: ₹600&#10;SAARC / BIMSTEC: ₹40 | Children &lt; 15 yrs: Free</string>
+    <string name="light_sound_info">Sound &amp; Light Show at Kumbha Palace:&#10;Hindi Show: 7:00 PM | English Show: 8:00 PM&#10;Ticket: ₹50 – ₹100 per person</string>
+
+    <!-- Actions -->
+    <string name="action_directions">Directions</string>
+    <string name="action_audio">Listen Audio</string>
+    <string name="action_details">View Details</string>
+    <string name="action_share">Share</string>
+    <string name="action_saved">Saved to Favorites</string>
+    <string name="action_removed">Removed from Favorites</string>
+
+    <!-- Offline Helplines -->
+    <string name="helpline_phone">+91 7597451057</string>
+    <string name="fort_control_phone">01472241564</string>
 </resources>

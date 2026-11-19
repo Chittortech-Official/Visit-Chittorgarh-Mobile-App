@@ -1,263 +1,407 @@
 package `in`.visitchittorgarh.fort.tour.guide
 
-import `in`.visitchittorgarh.fort.tour.guide.R
-import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
-import android.webkit.*
-import android.widget.Button
-import android.widget.FrameLayout
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import `in`.visitchittorgarh.fort.tour.guide.data.model.Itinerary
+import `in`.visitchittorgarh.fort.tour.guide.data.model.Monument
+import `in`.visitchittorgarh.fort.tour.guide.data.model.ServiceItem
+import `in`.visitchittorgarh.fort.tour.guide.data.repository.ChittorgarhDataRepository
+import `in`.visitchittorgarh.fort.tour.guide.data.repository.FavoritesManager
+import `in`.visitchittorgarh.fort.tour.guide.ui.MonumentDetailActivity
+import `in`.visitchittorgarh.fort.tour.guide.ui.adapter.AudioStoryAdapter
+import `in`.visitchittorgarh.fort.tour.guide.ui.adapter.ItineraryAdapter
+import `in`.visitchittorgarh.fort.tour.guide.ui.adapter.MonumentAdapter
+import `in`.visitchittorgarh.fort.tour.guide.ui.adapter.ServiceAdapter
+import `in`.visitchittorgarh.fort.tour.guide.util.AudioNarrator
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var webView: WebView
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
-    private lateinit var progressBar: ProgressBar
-    private lateinit var layoutOffline: LinearLayout
-    private lateinit var splashOverlay: FrameLayout
-    private lateinit var btnRetry: Button
+    private lateinit var favoritesManager: FavoritesManager
+    private var audioNarrator: AudioNarrator? = null
+
+    // Tabs
+    private lateinit var layoutTabExplore: LinearLayout
+    private lateinit var layoutTabAudio: LinearLayout
+    private lateinit var layoutTabItineraries: LinearLayout
+    private lateinit var layoutTabServices: NestedScrollView
+    private lateinit var bottomNavigation: BottomNavigationView
+
+    // Header buttons
+    private lateinit var btnHeaderWhatsApp: ImageView
+    private lateinit var btnHeaderCall: ImageView
+
+    // Tab 1 Views
+    private lateinit var editSearch: EditText
+    private lateinit var recyclerMonuments: RecyclerView
+    private lateinit var monumentAdapter: MonumentAdapter
+    private val categoryChips = mutableListOf<TextView>()
+
+    // Tab 2 Views (Audio Guide)
+    private lateinit var txtAudioNowPlayingTitle: TextView
+    private lateinit var txtAudioNowPlayingStatus: TextView
+    private lateinit var txtNarrationPreview: TextView
+    private lateinit var fabTabPlayAudio: FloatingActionButton
+    private lateinit var recyclerAudioStories: RecyclerView
+    private lateinit var audioStoryAdapter: AudioStoryAdapter
+    private var currentPlayingMonument: Monument? = null
+
+    // Tab 3 Views (Itineraries)
+    private lateinit var recyclerItineraries: RecyclerView
+    private lateinit var itineraryAdapter: ItineraryAdapter
+
+    // Tab 4 Views (Services)
+    private lateinit var recyclerServices: RecyclerView
+    private lateinit var serviceAdapter: ServiceAdapter
 
     private var backPressedTime: Long = 0
-    private var isFirstLoad = true
 
     companion object {
-        const val TARGET_URL = "https://www.visitchittorgarh.in/"
+        const val HELPLINE_NUMBER = "+917597451057"
+        const val FORT_CONTROL_ROOM = "01472241564"
+        const val POLICE_NUMBER = "112"
+        const val WHATSAPP_NUMBER = "917597451057"
+        const val WEBSITE_URL = "https://www.visitchittorgarh.in/"
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initViews()
-        setupSwipeRefresh()
-        setupWebView()
-        setupBackNavigation()
+        favoritesManager = FavoritesManager(this)
 
-        loadApp()
+        initViews()
+        setupAudio()
+        setupBottomNavigation()
+        setupExploreTab()
+        setupAudioTab()
+        setupItinerariesTab()
+        setupServicesTab()
+        setupBackNavigation()
     }
 
     private fun initViews() {
-        webView = findViewById(R.id.webView)
-        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
-        progressBar = findViewById(R.id.progressBar)
-        layoutOffline = findViewById(R.id.layoutOffline)
-        splashOverlay = findViewById(R.id.splashOverlay)
-        btnRetry = findViewById(R.id.btnRetry)
+        layoutTabExplore = findViewById(R.id.layoutTabExplore)
+        layoutTabAudio = findViewById(R.id.layoutTabAudio)
+        layoutTabItineraries = findViewById(R.id.layoutTabItineraries)
+        layoutTabServices = findViewById(R.id.layoutTabServices)
+        bottomNavigation = findViewById(R.id.bottomNavigation)
 
-        btnRetry.setOnClickListener {
-            loadApp()
+        btnHeaderWhatsApp = findViewById(R.id.btnHeaderWhatsApp)
+        btnHeaderCall = findViewById(R.id.btnHeaderCall)
+
+        btnHeaderWhatsApp.setOnClickListener {
+            openWhatsApp("Hello Visit Chittorgarh team! I need assistance regarding my visit to Chittorgarh Fort.")
+        }
+
+        btnHeaderCall.setOnClickListener {
+            dialNumber(HELPLINE_NUMBER)
         }
     }
 
-    private fun setupSwipeRefresh() {
-        swipeRefreshLayout.setColorSchemeColors(
-            ContextCompat.getColor(this, R.color.accent_gold),
-            ContextCompat.getColor(this, R.color.gold_light),
-            ContextCompat.getColor(this, R.color.primary)
-        )
-        swipeRefreshLayout.setProgressBackgroundColorSchemeColor(
-            ContextCompat.getColor(this, R.color.surface_card)
-        )
-        swipeRefreshLayout.setOnRefreshListener {
-            if (isNetworkAvailable()) {
-                webView.reload()
-            } else {
-                swipeRefreshLayout.isRefreshing = false
-                showOfflineScreen()
-            }
-        }
-    }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    private fun setupWebView() {
-        val settings = webView.settings
-        settings.javaScriptEnabled = true
-        settings.domStorageEnabled = true
-        settings.databaseEnabled = true
-        settings.allowFileAccess = true
-        settings.useWideViewPort = true
-        settings.loadWithOverviewMode = true
-        settings.setSupportZoom(true)
-        settings.builtInZoomControls = true
-        settings.displayZoomControls = false
-
-        settings.cacheMode = if (isNetworkAvailable()) {
-            WebSettings.LOAD_DEFAULT
-        } else {
-            WebSettings.LOAD_CACHE_ELSE_NETWORK
-        }
-
-        val defaultUserAgent = settings.userAgentString
-        settings.userAgentString = "$defaultUserAgent VisitChittorgarhApp/1.0.0 (Android; Mobile)"
-
-        webView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
-
-        webView.webChromeClient = object : WebChromeClient() {
-            override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                if (newProgress < 100) {
-                    progressBar.visibility = View.VISIBLE
-                    progressBar.progress = newProgress
-                } else {
-                    progressBar.visibility = View.GONE
-                    swipeRefreshLayout.isRefreshing = false
-                }
-            }
-
-            override fun onGeolocationPermissionsShowPrompt(
-                origin: String?,
-                callback: GeolocationPermissions.Callback?
-            ) {
-                callback?.invoke(origin, true, false)
-            }
-        }
-
-        webView.webViewClient = object : WebViewClient() {
-            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                super.onPageStarted(view, url, favicon)
-                showOnlineScreen()
-            }
-
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                swipeRefreshLayout.isRefreshing = false
-                if (isFirstLoad) {
-                    isFirstLoad = false
-                    splashOverlay.animate()
-                        .alpha(0f)
-                        .setDuration(400)
-                        .withEndAction {
-                            splashOverlay.visibility = View.GONE
+    private fun setupAudio() {
+        audioNarrator = AudioNarrator(this) { isReady ->
+            if (isReady) {
+                audioNarrator?.onSpeechStateChange = { isSpeaking, utteranceId ->
+                    runOnUiThread {
+                        if (isSpeaking) {
+                            fabTabPlayAudio.setImageResource(R.drawable.ic_pause)
+                            txtAudioNowPlayingStatus.text = "Now narrating..."
+                            txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.gold_bright))
+                            audioStoryAdapter.setPlayingId(utteranceId)
+                        } else {
+                            fabTabPlayAudio.setImageResource(R.drawable.ic_play_arrow)
+                            txtAudioNowPlayingStatus.text = "Paused / Stopped"
+                            txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.gold_light))
+                            audioStoryAdapter.setPlayingId(null)
                         }
+                    }
                 }
-            }
-
-            override fun onReceivedError(
-                view: WebView?,
-                request: WebResourceRequest?,
-                error: WebResourceError?
-            ) {
-                super.onReceivedError(view, request, error)
-                if (request?.isForMainFrame == true && !isNetworkAvailable()) {
-                    showOfflineScreen()
-                }
-            }
-
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                val url = request?.url?.toString() ?: return false
-                return handleSpecialIntents(url)
             }
         }
     }
 
-    private fun handleSpecialIntents(url: String): Boolean {
-        try {
-            val uri = Uri.parse(url)
-
-            if (url.startsWith("whatsapp://") || url.contains("api.whatsapp.com") || url.contains("wa.me")) {
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                return true
+    private fun setupBottomNavigation() {
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_explore -> switchTab(0)
+                R.id.nav_audio -> switchTab(1)
+                R.id.nav_itinerary -> switchTab(2)
+                R.id.nav_services -> switchTab(3)
+                else -> false
             }
-
-            if (url.startsWith("tel:")) {
-                val intent = Intent(Intent.ACTION_DIAL, uri)
-                startActivity(intent)
-                return true
-            }
-
-            if (url.startsWith("mailto:")) {
-                val intent = Intent(Intent.ACTION_SENDTO, uri)
-                startActivity(intent)
-                return true
-            }
-
-            if (url.startsWith("geo:") || url.contains("maps.google.com") || url.contains("google.com/maps")) {
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                return true
-            }
-
-            if (url.startsWith("upi://")) {
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                startActivity(intent)
-                return true
-            }
-
-            if (url.contains("visitchittorgarh.in")) {
-                return false
-            }
-
-            val intent = Intent(Intent.ACTION_VIEW, uri)
-            startActivity(intent)
-            return true
-
-        } catch (e: Exception) {
-            Toast.makeText(this, "Could not open external app", Toast.LENGTH_SHORT).show()
-            return false
+            true
         }
     }
 
-    private fun loadApp() {
-        if (isNetworkAvailable()) {
-            showOnlineScreen()
-            webView.loadUrl(TARGET_URL)
+    private fun switchTab(tabIndex: Int) {
+        layoutTabExplore.visibility = if (tabIndex == 0) View.VISIBLE else View.GONE
+        layoutTabAudio.visibility = if (tabIndex == 1) View.VISIBLE else View.GONE
+        layoutTabItineraries.visibility = if (tabIndex == 2) View.VISIBLE else View.GONE
+        layoutTabServices.visibility = if (tabIndex == 3) View.VISIBLE else View.GONE
+
+        // Refresh favorites if returning to explore
+        if (tabIndex == 0) {
+            monumentAdapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun setupExploreTab() {
+        editSearch = findViewById(R.id.editSearch)
+        recyclerMonuments = findViewById(R.id.recyclerMonuments)
+
+        monumentAdapter = MonumentAdapter(
+            allMonuments = ChittorgarhDataRepository.monuments,
+            favoritesManager = favoritesManager,
+            onItemClick = { monument ->
+                openMonumentDetail(monument.id)
+            },
+            onAudioClick = { monument ->
+                bottomNavigation.selectedItemId = R.id.nav_audio
+                playAudioStory(monument)
+            },
+            onDirectionsClick = { monument ->
+                openDirections(monument.latitude, monument.longitude, monument.name)
+            },
+            onFavoriteClick = { monument, isFav ->
+                val msg = if (isFav) getString(R.string.action_saved) else getString(R.string.action_removed)
+                Toast.makeText(this, "${monument.name}: $msg", Toast.LENGTH_SHORT).show()
+            }
+        )
+
+        recyclerMonuments.layoutManager = LinearLayoutManager(this)
+        recyclerMonuments.adapter = monumentAdapter
+
+        // Search listener
+        editSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                monumentAdapter.filter(query = s?.toString())
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        // Chips
+        setupCategoryChips()
+    }
+
+    private fun setupCategoryChips() {
+        val chipAll: TextView = findViewById(R.id.chipAll)
+        val chipFavorites: TextView = findViewById(R.id.chipFavorites)
+        val chipTowers: TextView = findViewById(R.id.chipTowers)
+        val chipPalaces: TextView = findViewById(R.id.chipPalaces)
+        val chipTemples: TextView = findViewById(R.id.chipTemples)
+        val chipReservoirs: TextView = findViewById(R.id.chipReservoirs)
+        val chipGates: TextView = findViewById(R.id.chipGates)
+
+        categoryChips.addAll(listOf(chipAll, chipFavorites, chipTowers, chipPalaces, chipTemples, chipReservoirs, chipGates))
+
+        val map = mapOf(
+            chipAll to "All",
+            chipFavorites to "Favorites",
+            chipTowers to "Tower",
+            chipPalaces to "Palace",
+            chipTemples to "Temple",
+            chipReservoirs to "Reservoir",
+            chipGates to "Gate"
+        )
+
+        map.forEach { (chip, category) ->
+            chip.setOnClickListener {
+                selectChip(chip)
+                monumentAdapter.filter(category = category)
+            }
+        }
+    }
+
+    private fun selectChip(selectedChip: TextView) {
+        categoryChips.forEach { chip ->
+            if (chip == selectedChip) {
+                chip.setBackgroundResource(R.drawable.bg_chip_selected)
+                chip.setTextColor(ContextCompat.getColor(this, R.color.primary_dark))
+                chip.setTypeface(null, android.graphics.Typeface.BOLD)
+            } else {
+                chip.setBackgroundResource(R.drawable.bg_chip_unselected)
+                chip.setTextColor(ContextCompat.getColor(this, R.color.text_white))
+                chip.setTypeface(null, android.graphics.Typeface.NORMAL)
+            }
+        }
+    }
+
+    private fun setupAudioTab() {
+        txtAudioNowPlayingTitle = findViewById(R.id.txtAudioNowPlayingTitle)
+        txtAudioNowPlayingStatus = findViewById(R.id.txtAudioNowPlayingStatus)
+        txtNarrationPreview = findViewById(R.id.txtNarrationPreview)
+        fabTabPlayAudio = findViewById(R.id.fabTabPlayAudio)
+        recyclerAudioStories = findViewById(R.id.recyclerAudioStories)
+
+        val firstStory = ChittorgarhDataRepository.monuments.first()
+        currentPlayingMonument = firstStory
+        txtAudioNowPlayingTitle.text = firstStory.name
+        txtNarrationPreview.text = firstStory.audioStory
+
+        audioStoryAdapter = AudioStoryAdapter(ChittorgarhDataRepository.monuments) { monument ->
+            playAudioStory(monument)
+        }
+
+        recyclerAudioStories.layoutManager = LinearLayoutManager(this)
+        recyclerAudioStories.adapter = audioStoryAdapter
+
+        fabTabPlayAudio.setOnClickListener {
+            val mon = currentPlayingMonument ?: return@setOnClickListener
+            if (audioNarrator?.isSpeaking() == true) {
+                audioNarrator?.stop()
+            } else {
+                playAudioStory(mon)
+            }
+        }
+    }
+
+    private fun playAudioStory(monument: Monument) {
+        currentPlayingMonument = monument
+        txtAudioNowPlayingTitle.text = monument.name
+        txtNarrationPreview.text = monument.audioStory
+
+        if (audioNarrator?.getCurrentPlayingId() == monument.id && audioNarrator?.isSpeaking() == true) {
+            audioNarrator?.stop()
         } else {
-            showOfflineScreen()
+            audioNarrator?.play(monument.id, monument.audioStory)
         }
     }
 
-    private fun showOfflineScreen() {
-        splashOverlay.visibility = View.GONE
-        swipeRefreshLayout.visibility = View.GONE
-        layoutOffline.visibility = View.VISIBLE
+    private fun setupItinerariesTab() {
+        recyclerItineraries = findViewById(R.id.recyclerItineraries)
+
+        itineraryAdapter = ItineraryAdapter(ChittorgarhDataRepository.itineraries) { itinerary ->
+            openItineraryNavigation(itinerary)
+        }
+
+        recyclerItineraries.layoutManager = LinearLayoutManager(this)
+        recyclerItineraries.adapter = itineraryAdapter
     }
 
-    private fun showOnlineScreen() {
-        layoutOffline.visibility = View.GONE
-        swipeRefreshLayout.visibility = View.VISIBLE
+    private fun openItineraryNavigation(itinerary: Itinerary) {
+        // Build destination navigation to first monument or route
+        val firstStop = itinerary.stops.firstOrNull()
+        val mon = firstStop?.let { ChittorgarhDataRepository.getMonumentById(it.monumentId) }
+        val lat = mon?.latitude ?: 24.8879
+        val lng = mon?.longitude ?: 74.6293
+        val uri = Uri.parse("google.navigation:q=$lat,$lng&mode=d")
+        val mapIntent = Intent(Intent.ACTION_VIEW, uri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        try {
+            startActivity(mapIntent)
+        } catch (e: Exception) {
+            val browserUri = Uri.parse("https://www.google.com/maps/dir/?api=1&destination=$lat,$lng")
+            startActivity(Intent(Intent.ACTION_VIEW, browserUri))
+        }
     }
 
-    private fun isNetworkAvailable(): Boolean {
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager ?: return false
-        val activeNetwork = cm.activeNetwork ?: return false
-        val caps = cm.getNetworkCapabilities(activeNetwork) ?: return false
-        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    private fun setupServicesTab() {
+        val btnCallTouristHelpline: View = findViewById(R.id.btnCallTouristHelpline)
+        val btnServiceWhatsApp: View = findViewById(R.id.btnServiceWhatsApp)
+        val btnCallFortControl: View = findViewById(R.id.btnCallFortControl)
+        val btnCallPolice: View = findViewById(R.id.btnCallPolice)
+        val btnOpenWebsite: View = findViewById(R.id.btnOpenWebsite)
+
+        btnCallTouristHelpline.setOnClickListener { dialNumber(HELPLINE_NUMBER) }
+        btnCallFortControl.setOnClickListener { dialNumber(FORT_CONTROL_ROOM) }
+        btnCallPolice.setOnClickListener { dialNumber(POLICE_NUMBER) }
+
+        btnServiceWhatsApp.setOnClickListener {
+            openWhatsApp("Hello Visit Chittorgarh team! I would like to inquire about verified guides, private cabs, and hotel bookings.")
+        }
+
+        btnOpenWebsite.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE_URL)))
+        }
+
+        recyclerServices = findViewById(R.id.recyclerServices)
+        serviceAdapter = ServiceAdapter(ChittorgarhDataRepository.serviceItems) { serviceItem ->
+            when (serviceItem.actionType) {
+                "WHATSAPP_GUIDE" -> openWhatsApp("Namaste! I would like to book an Authorized Mewari Tour Guide for Chittorgarh Fort.")
+                "WHATSAPP_TAXI" -> openWhatsApp("Namaste! I would like to inquire about booking a ${serviceItem.title} for Chittorgarh sight-seeing.")
+                else -> startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE_URL)))
+            }
+        }
+
+        recyclerServices.layoutManager = LinearLayoutManager(this)
+        recyclerServices.adapter = serviceAdapter
+    }
+
+    private fun openMonumentDetail(monumentId: String) {
+        val intent = Intent(this, MonumentDetailActivity::class.java).apply {
+            putExtra(MonumentDetailActivity.EXTRA_MONUMENT_ID, monumentId)
+        }
+        startActivity(intent)
+    }
+
+    private fun openDirections(lat: Double, lng: Double, label: String) {
+        val uri = Uri.parse("geo:0,0?q=$lat,$lng(${Uri.encode(label)})")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        try {
+            startActivity(intent)
+        } catch (e: Exception) {
+            val webUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat,$lng")
+            startActivity(Intent(Intent.ACTION_VIEW, webUri))
+        }
+    }
+
+    private fun openWhatsApp(message: String) {
+        val uri = Uri.parse("https://wa.me/$WHATSAPP_NUMBER?text=${Uri.encode(message)}")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        try {
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Could not open WhatsApp", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun dialNumber(phone: String) {
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phone"))
+        try {
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Could not open phone dialer", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setupBackNavigation() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (webView.canGoBack()) {
-                    webView.goBack()
+                if (bottomNavigation.selectedItemId != R.id.nav_explore) {
+                    bottomNavigation.selectedItemId = R.id.nav_explore
+                    return
+                }
+
+                if (System.currentTimeMillis() - backPressedTime < 2000) {
+                    finish()
                 } else {
-                    if (System.currentTimeMillis() - backPressedTime < 2000) {
-                        finish()
-                    } else {
-                        backPressedTime = System.currentTimeMillis()
-                        Toast.makeText(this@MainActivity, "Press back again to exit", Toast.LENGTH_SHORT).show()
-                    }
+                    backPressedTime = System.currentTimeMillis()
+                    Toast.makeText(this@MainActivity, "Press back again to exit Visit Chittorgarh", Toast.LENGTH_SHORT).show()
                 }
             }
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        audioNarrator?.shutdown()
     }
 }

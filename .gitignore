@@ -9,6 +9,8 @@
 .cxx
 *.jks
 *.keystore
+*key
+app/release/
 app/build/
 build/
 
