@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom nav extra padding for gesture-nav phones (overridden by WindowInsets in code) -->
+    <dimen name="nav_bar_padding">0dp</dimen>
+</resources>
+

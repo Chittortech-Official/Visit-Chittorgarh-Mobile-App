@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/window_background">
 
-    <!-- MAIN APP CONTENT -->
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <!-- MAIN APP CONTENT (Vertical Responsive Layout: Top Bar -> Dynamic Content Frame -> Bottom Bar) -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:background="@color/window_background">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/surface_white"
@@ -21,10 +23,12 @@
             <!-- World-Class Header Bar with Hamburger Menu -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="14dp">
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp">
 
                 <!-- 🍔 Hamburger Menu Button -->
                 <ImageView
@@ -57,7 +61,9 @@
                         android:text="Visit Chittorgarh"
                         android:textColor="@color/text_primary"
                         android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -65,7 +71,9 @@
                         android:text="Official Tourism &amp; Fort Guide"
                         android:textColor="@color/accent_gold"
                         android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
                 </LinearLayout>
 
                 <!-- Quick WhatsApp Action -->
@@ -97,12 +105,11 @@
                 android:background="@color/border_subtle" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Main Content Frame (Switching between tabs) -->
+        <!-- Main Content Frame (Switching between tabs - dynamically fills space) -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="64dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <!-- TAB 1: EXPLORE -->
             <LinearLayout
@@ -694,17 +701,16 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_gravity="bottom"
+            android:layout_height="wrap_content"
             android:background="@color/surface_white"
             app:elevation="8dp"
             app:itemIconSize="22dp"
             app:itemIconTint="@drawable/bottom_nav_selector"
             app:itemTextColor="@drawable/bottom_nav_selector"
-            app:labelVisibilityMode="labeled"
+            app:labelVisibilityMode="auto"
             app:menu="@menu/bottom_nav_menu" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
 
     <!-- 🧭 SIDE NAVIGATION DRAWER -->
     <com.google.android.material.navigation.NavigationView

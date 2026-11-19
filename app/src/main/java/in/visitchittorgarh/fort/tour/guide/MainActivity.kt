@@ -15,6 +15,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.NestedScrollView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -90,11 +93,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Edge-to-edge: app draws behind system bars, we adjust manually
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContentView(R.layout.activity_main)
 
         favoritesManager = FavoritesManager(this)
 
         initViews()
+        setupWindowInsets()   // ← responsive system bar padding
         setupDrawer()
         setupAudio()
         setupBottomNavigation()
@@ -129,6 +135,24 @@ class MainActivity : AppCompatActivity() {
 
         btnHeaderCall.setOnClickListener {
             dialNumber(HELPLINE_NUMBER)
+        }
+    }
+
+    /**
+     * Apply WindowInsets so the app is fully responsive across:
+     * - Phones with gesture navigation (extra bottom inset)
+     * - Phones with 3-button nav (smaller inset)
+     * - Notched/punch-hole screens (top inset)
+     */
+    private fun setupWindowInsets() {
+        val appBarLayout = findViewById<View>(R.id.appBarLayout)
+        ViewCompat.setOnApplyWindowInsetsListener(drawerLayout) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            // Status bar → pad the AppBar so content doesn't go under notch
+            appBarLayout?.setPadding(0, systemBars.top, 0, 0)
+            // Gesture/nav bar → pad BottomNav so it doesn't hide behind nav bar
+            bottomNavigation.setPadding(0, 0, 0, systemBars.bottom)
+            insets
         }
     }
 
