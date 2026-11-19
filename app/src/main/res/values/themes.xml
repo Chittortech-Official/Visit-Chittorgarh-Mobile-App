@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.VisitChittorgarh" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
-        <item name="colorOnPrimary">@color/text_white</item>
-        <item name="colorSecondary">@color/accent_gold</item>
-        <item name="colorSecondaryVariant">@color/gold_light</item>
-        <item name="colorOnSecondary">@color/primary_dark</item>
-        <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:navigationBarColor">@color/primary_dark</item>
-        <item name="android:windowBackground">@color/primary_dark</item>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.VisitChittorgarh" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/accent_gold</item>
+        <item name="colorPrimaryVariant">@color/gold_bright</item>
+        <item name="colorOnPrimary">@color/surface_white</item>
+        <item name="colorSecondary">@color/gold_bright</item>
+        <item name="colorSecondaryVariant">@color/accent_gold</item>
+        <item name="colorOnSecondary">@color/surface_white</item>
+        <item name="android:statusBarColor">@color/surface_white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor">@color/surface_white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
 </resources>

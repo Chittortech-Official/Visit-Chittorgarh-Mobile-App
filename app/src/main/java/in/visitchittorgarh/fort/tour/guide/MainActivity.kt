@@ -14,11 +14,14 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import androidx.core.widget.NestedScrollView
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
 import `in`.visitchittorgarh.fort.tour.guide.data.model.Itinerary
 import `in`.visitchittorgarh.fort.tour.guide.data.model.Monument
 import `in`.visitchittorgarh.fort.tour.guide.data.model.ServiceItem
@@ -35,6 +38,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var favoritesManager: FavoritesManager
     private var audioNarrator: AudioNarrator? = null
+
+    // Drawer & Navigation
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+    private lateinit var btnHamburger: ImageView
 
     // Tabs
     private lateinit var layoutTabExplore: LinearLayout
@@ -87,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         favoritesManager = FavoritesManager(this)
 
         initViews()
+        setupDrawer()
         setupAudio()
         setupBottomNavigation()
         setupExploreTab()
@@ -97,6 +106,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        drawerLayout = findViewById(R.id.drawerLayout)
+        navigationView = findViewById(R.id.navigationView)
+        btnHamburger = findViewById(R.id.btnHamburger)
+
         layoutTabExplore = findViewById(R.id.layoutTabExplore)
         layoutTabAudio = findViewById(R.id.layoutTabAudio)
         layoutTabItineraries = findViewById(R.id.layoutTabItineraries)
@@ -106,12 +119,49 @@ class MainActivity : AppCompatActivity() {
         btnHeaderWhatsApp = findViewById(R.id.btnHeaderWhatsApp)
         btnHeaderCall = findViewById(R.id.btnHeaderCall)
 
+        btnHamburger.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
         btnHeaderWhatsApp.setOnClickListener {
             openWhatsApp("Hello Visit Chittorgarh team! I need assistance regarding my visit to Chittorgarh Fort.")
         }
 
         btnHeaderCall.setOnClickListener {
             dialNumber(HELPLINE_NUMBER)
+        }
+    }
+
+    private fun setupDrawer() {
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            drawerLayout.closeDrawer(GravityCompat.START)
+            when (menuItem.itemId) {
+                R.id.drawer_explore -> {
+                    bottomNavigation.selectedItemId = R.id.nav_explore
+                }
+                R.id.drawer_audio -> {
+                    bottomNavigation.selectedItemId = R.id.nav_audio
+                }
+                R.id.drawer_tours -> {
+                    bottomNavigation.selectedItemId = R.id.nav_itinerary
+                }
+                R.id.drawer_services, R.id.drawer_tickets -> {
+                    bottomNavigation.selectedItemId = R.id.nav_services
+                }
+                R.id.drawer_cabs -> {
+                    openWhatsApp("Hello Visit Chittorgarh! I would like to book a private cab for the Chittorgarh Fort tour.")
+                }
+                R.id.drawer_emergency -> {
+                    dialNumber(HELPLINE_NUMBER)
+                }
+                R.id.drawer_whatsapp -> {
+                    openWhatsApp("Namaste Visit Chittorgarh! Please guide me with official tour assistance.")
+                }
+                R.id.drawer_website -> {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE_URL)))
+                }
+            }
+            true
         }
     }
 
@@ -123,12 +173,12 @@ class MainActivity : AppCompatActivity() {
                         if (isSpeaking) {
                             fabTabPlayAudio.setImageResource(R.drawable.ic_pause)
                             txtAudioNowPlayingStatus.text = "Now narrating..."
-                            txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.gold_bright))
+                            txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.accent_gold))
                             audioStoryAdapter.setPlayingId(utteranceId)
                         } else {
                             fabTabPlayAudio.setImageResource(R.drawable.ic_play_arrow)
                             txtAudioNowPlayingStatus.text = "Paused / Stopped"
-                            txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.gold_light))
+                            txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.text_muted))
                             audioStoryAdapter.setPlayingId(null)
                         }
                     }
@@ -234,11 +284,11 @@ class MainActivity : AppCompatActivity() {
         categoryChips.forEach { chip ->
             if (chip == selectedChip) {
                 chip.setBackgroundResource(R.drawable.bg_chip_selected)
-                chip.setTextColor(ContextCompat.getColor(this, R.color.primary_dark))
+                chip.setTextColor(ContextCompat.getColor(this, R.color.surface_white))
                 chip.setTypeface(null, android.graphics.Typeface.BOLD)
             } else {
                 chip.setBackgroundResource(R.drawable.bg_chip_unselected)
-                chip.setTextColor(ContextCompat.getColor(this, R.color.text_white))
+                chip.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
                 chip.setTypeface(null, android.graphics.Typeface.NORMAL)
             }
         }
@@ -297,7 +347,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openItineraryNavigation(itinerary: Itinerary) {
-        // Build destination navigation to first monument or route
         val firstStop = itinerary.stops.firstOrNull()
         val mon = firstStop?.let { ChittorgarhDataRepository.getMonumentById(it.monumentId) }
         val lat = mon?.latitude ?: 24.8879
@@ -385,6 +434,11 @@ class MainActivity : AppCompatActivity() {
     private fun setupBackNavigation() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    return
+                }
+
                 if (bottomNavigation.selectedItemId != R.id.nav_explore) {
                     bottomNavigation.selectedItemId = R.id.nav_explore
                     return

@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_dark">
+    android:background="@color/window_background">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="280dp"
+        android:background="@color/surface_white"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/primary_dark"
+            app:contentScrim="@color/surface_white"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:titleEnabled="false">
 
@@ -27,6 +28,7 @@
                 app:layout_collapseMode="parallax"
                 android:contentDescription="Monument Photo" />
 
+            <!-- Dark gradient over image so back and title are always visible -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -42,20 +44,20 @@
                     android:id="@+id/btnBack"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:background="@drawable/bg_chip_unselected"
                     android:padding="8dp"
                     android:src="@drawable/ic_arrow_back"
-                    app:tint="@color/text_white"
+                    app:tint="@color/text_primary"
                     android:contentDescription="Back" />
 
                 <TextView
                     android:id="@+id/txtToolbarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="14dp"
                     android:text="Monument Details"
-                    android:textColor="@color/text_white"
-                    android:textSize="18sp"
+                    android:textColor="@color/surface_white"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -64,10 +66,10 @@
                     android:layout_height="40dp"
                     android:layout_gravity="end"
                     android:layout_marginEnd="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:background="@drawable/bg_chip_unselected"
                     android:padding="8dp"
                     android:src="@drawable/ic_share"
-                    app:tint="@color/text_white"
+                    app:tint="@color/text_primary"
                     android:contentDescription="Share" />
 
                 <ImageView
@@ -76,9 +78,10 @@
                     android:layout_height="40dp"
                     android:layout_gravity="end"
                     android:layout_marginEnd="16dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:background="@drawable/bg_chip_unselected"
                     android:padding="8dp"
                     android:src="@drawable/ic_favorite_border"
+                    app:tint="@color/ruby_crimson"
                     android:contentDescription="Favorite" />
             </androidx.appcompat.widget.Toolbar>
 
@@ -98,8 +101,8 @@
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="VICTORY TOWER"
-                    android:textColor="@color/gold_bright"
-                    android:textSize="11sp"
+                    android:textColor="@color/gold_badge_text"
+                    android:textSize="10.5sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -108,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:text="Vijay Stambha"
-                    android:textColor="@color/text_white"
+                    android:textColor="@color/surface_white"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -118,8 +121,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="विजय स्तम्भ (कीर्ति की अमर गाथा)"
-                    android:textColor="@color/gold_bright"
-                    android:textSize="14sp" />
+                    android:textColor="@color/gold_light"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -135,14 +139,15 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Audio Player Banner -->
+            <!-- Audio Player Banner Card (Clean White) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/surface_card"
+                app:cardBackgroundColor="@color/surface_white"
                 app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
                 app:strokeColor="@color/accent_gold"
-                app:strokeWidth="1dp">
+                app:strokeWidth="1.2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -160,7 +165,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/ic_nav_audio"
-                            app:tint="@color/gold_bright" />
+                            app:tint="@color/accent_gold" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -173,7 +178,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Official Heritage Audio Guide"
-                                android:textColor="@color/text_white"
+                                android:textColor="@color/text_primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -182,8 +187,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Tap play to listen to audio narration"
-                                android:textColor="@color/gold_light"
-                                android:textSize="11sp" />
+                                android:textColor="@color/accent_gold"
+                                android:textSize="11.5sp" />
                         </LinearLayout>
 
                         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -193,7 +198,7 @@
                             app:backgroundTint="@color/accent_gold"
                             app:fabCustomSize="44dp"
                             app:srcCompat="@drawable/ic_play_arrow"
-                            app:tint="@color/primary_dark" />
+                            app:tint="@color/surface_white" />
                     </LinearLayout>
 
                     <!-- Speed Options -->
@@ -208,7 +213,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Speed: "
-                            android:textColor="@color/text_muted"
+                            android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
 
                         <TextView
@@ -220,7 +225,7 @@
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="4dp"
                             android:text="0.85x"
-                            android:textColor="@color/text_white"
+                            android:textColor="@color/text_secondary"
                             android:textSize="11sp" />
 
                         <TextView
@@ -232,7 +237,7 @@
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="4dp"
                             android:text="1.0x"
-                            android:textColor="@color/primary_dark"
+                            android:textColor="@color/surface_white"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -245,7 +250,7 @@
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="4dp"
                             android:text="1.2x"
-                            android:textColor="@color/text_white"
+                            android:textColor="@color/text_secondary"
                             android:textSize="11sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -257,23 +262,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="@color/surface_divider"
+                android:backgroundTint="@color/accent_gold"
                 android:text="Navigate in Google Maps"
                 android:textAllCaps="false"
-                android:textColor="@color/text_white"
+                android:textColor="@color/surface_white"
                 android:textSize="13sp"
+                android:textStyle="bold"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/ic_directions"
                 app:iconGravity="textStart"
                 app:iconPadding="8dp"
                 app:iconSize="18dp"
-                app:iconTint="@color/text_white" />
+                app:iconTint="@color/surface_white" />
 
-            <!-- Practical Info Cards (Timings & Entry) -->
+            <!-- Practical Info Cards (Timings & Best Time) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:baselineAligned="false"
                 android:orientation="horizontal">
 
@@ -283,9 +289,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="6dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/surface_card"
+                    app:cardBackgroundColor="@color/surface_white"
                     app:cardCornerRadius="14dp"
-                    app:strokeColor="#24324C"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
                     <LinearLayout
@@ -298,7 +305,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/ic_clock"
-                            app:tint="@color/gold_bright" />
+                            app:tint="@color/accent_gold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -314,7 +321,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="9:00 AM – 5:00 PM"
-                            android:textColor="@color/text_white"
+                            android:textColor="@color/text_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -326,9 +333,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/surface_card"
+                    app:cardBackgroundColor="@color/surface_white"
                     app:cardCornerRadius="14dp"
-                    app:strokeColor="#24324C"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
                     <LinearLayout
@@ -341,7 +349,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/ic_star"
-                            app:tint="@color/gold_bright" />
+                            app:tint="@color/accent_gold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -357,7 +365,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="Golden Hour"
-                            android:textColor="@color/text_white"
+                            android:textColor="@color/text_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -369,11 +377,11 @@
                 android:id="@+id/txtDetailTagline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="18dp"
                 android:text="The 9-storey marvel commemorating Maharana Kumbha's historic victory"
-                android:textColor="@color/gold_bright"
-                android:textSize="15sp"
-                android:textStyle="italic" />
+                android:textColor="@color/accent_gold"
+                android:textSize="14.5sp"
+                android:textStyle="bold" />
 
             <!-- Historic Significance & Chronicle -->
             <TextView
@@ -381,7 +389,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Historical Chronicle &amp; Lore"
-                android:textColor="@color/text_white"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -392,7 +400,7 @@
                 android:layout_marginTop="8dp"
                 android:lineSpacingExtra="4dp"
                 android:text="History details..."
-                android:textColor="@color/text_muted_light"
+                android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
 
             <!-- Architecture & Engineering -->
@@ -401,7 +409,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="Architecture &amp; Design"
-                android:textColor="@color/text_white"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -412,7 +420,7 @@
                 android:layout_marginTop="8dp"
                 android:lineSpacingExtra="4dp"
                 android:text="Architecture details..."
-                android:textColor="@color/text_muted_light"
+                android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
 
             <!-- Key Highlights Header -->
@@ -421,7 +429,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="Key Highlights"
-                android:textColor="@color/text_white"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -439,4 +447,3 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

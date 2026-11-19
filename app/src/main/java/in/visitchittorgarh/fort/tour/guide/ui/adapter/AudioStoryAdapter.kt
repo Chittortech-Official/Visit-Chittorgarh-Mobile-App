@@ -20,7 +20,6 @@ class AudioStoryAdapter(
     private var currentPlayingId: String? = null
 
     fun setPlayingId(id: String?) {
-        val prevId = currentPlayingId
         currentPlayingId = id
         notifyDataSetChanged()
     }
@@ -50,18 +49,20 @@ class AudioStoryAdapter(
             imgThumb.setImageResource(monument.imageRes)
             txtAudioTitle.text = monument.name
             txtAudioHindi.text = monument.hindiName
-            txtAudioCategory.text = "${monument.category} • Audio Guide"
+            txtAudioCategory.text = "🎧 Audio Story • 2 mins narration"
 
             val isPlaying = currentPlayingId == monument.id
 
             if (isPlaying) {
                 btnPlayStop.setImageResource(R.drawable.ic_pause)
-                card.strokeColor = ContextCompat.getColor(itemView.context, R.color.gold_bright)
-                card.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.surface_card_elevated))
+                btnPlayStop.setColorFilter(ContextCompat.getColor(itemView.context, R.color.ruby_crimson))
+                card.strokeColor = ContextCompat.getColor(itemView.context, R.color.accent_gold)
+                card.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.gold_badge_bg))
             } else {
                 btnPlayStop.setImageResource(R.drawable.ic_play_arrow)
-                card.strokeColor = ContextCompat.getColor(itemView.context, R.color.surface_divider)
-                card.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.surface_card))
+                btnPlayStop.setColorFilter(ContextCompat.getColor(itemView.context, R.color.accent_gold))
+                card.strokeColor = ContextCompat.getColor(itemView.context, R.color.border_subtle)
+                card.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.surface_white))
             }
 
             itemView.setOnClickListener {
@@ -74,4 +75,3 @@ class AudioStoryAdapter(
         }
     }
 }
-

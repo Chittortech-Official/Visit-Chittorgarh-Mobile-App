@@ -21,7 +21,6 @@
         android:layout_weight="1"
         android:lineSpacingExtra="2dp"
         android:text="Highlight detail"
-        android:textColor="@color/text_cream"
+        android:textColor="@color/text_primary"
         android:textSize="13sp" />
 </LinearLayout>
-

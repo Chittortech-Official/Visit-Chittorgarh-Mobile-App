@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="4dp"
+    android:layout_marginVertical="5dp"
     android:gravity="top"
     android:orientation="horizontal">
 
@@ -10,12 +10,12 @@
         android:id="@+id/txtStepNumber"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/bg_badge_gold"
         android:gravity="center"
         android:text="1"
-        android:textColor="@color/gold_bright"
-        android:textSize="12sp"
+        android:textColor="@color/gold_badge_text"
+        android:textSize="11.5sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -30,8 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Stop Title (30 mins)"
-            android:textColor="@color/text_white"
-            android:textSize="13sp"
+            android:textColor="@color/text_primary"
+            android:textSize="13.5sp"
             android:textStyle="bold" />
 
         <TextView
@@ -40,8 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="Brief stop description..."
-            android:textColor="@color/text_muted"
-            android:textSize="11sp" />
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/txtStopTip"
@@ -49,8 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="💡 Tip: ..."
-            android:textColor="@color/gold_light"
-            android:textSize="10sp" />
+            android:textColor="@color/accent_gold"
+            android:textSize="11sp" />
     </LinearLayout>
 </LinearLayout>
-

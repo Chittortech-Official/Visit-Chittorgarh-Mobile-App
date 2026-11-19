@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Royal Mewari Heritage Color Palette (matching visitchittorgarh.in) -->
+    <!-- World-Class Travel App Light & Royal Palette (matching visitchittorgarh.in) -->
     <color name="primary">#0F172A</color>
-    <color name="primary_dark">#090D16</color>
+    <color name="primary_dark">#020617</color>
     <color name="primary_light">#1E293B</color>
 
-    <!-- Royal Ochre & Amber Gold -->
-    <color name="accent_gold">#C49A32</color>
-    <color name="gold_bright">#DFBA5A</color>
+    <!-- Luxury Light & Clean Backgrounds -->
+    <color name="window_background">#F8F9FA</color>
+    <color name="surface_white">#FFFFFF</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="surface_card_elevated">#FFFFFF</color>
+    <color name="surface_cream">#FDFBF7</color>
+    <color name="surface_secondary">#F1F5F9</color>
+    <color name="surface_divider">#E2E8F0</color>
+    <color name="border_cream">#EFE7D9</color>
+    <color name="border_subtle">#E2E8F0</color>
+
+    <!-- Royal Ochre & Amber Gold Accents -->
+    <color name="accent_gold">#B45309</color>
+    <color name="gold_bright">#D97706</color>
     <color name="gold_light">#F59E0B</color>
     <color name="gold_warm">#D97706</color>
     <color name="gold_dark">#92400E</color>
+    <color name="gold_badge_bg">#FEF3C7</color>
+    <color name="gold_badge_text">#92400E</color>
 
-    <!-- Rajputana Sandstone & Cream -->
-    <color name="cream_bg">#F8F5EF</color>
-    <color name="cream_card">#FAF7F2</color>
-    <color name="cream_border">#EFE7D9</color>
-    <color name="terracotta_rust">#A65F3D</color>
-
-    <!-- Dark Theme Surfaces -->
-    <color name="background_dark">#0A0E17</color>
-    <color name="surface_card">#131B2B</color>
-    <color name="surface_card_elevated">#1A2438</color>
-    <color name="surface_divider">#24324C</color>
-
-    <!-- Typography -->
+    <!-- Typography (Clean High Contrast) -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_muted">#64748B</color>
+    <color name="text_muted_light">#475569</color>
+    <color name="text_light">#94A3B8</color>
     <color name="text_white">#FFFFFF</color>
-    <color name="text_cream">#F5EDE0</color>
-    <color name="text_muted">#94A3B8</color>
-    <color name="text_muted_light">#CBD5E1</color>
-    <color name="text_dark">#1E293B</color>
+    <color name="text_cream">#FEF3C7</color>
 
     <!-- Accents & Functional -->
-    <color name="ruby_crimson">#E11D48</color>
-    <color name="emerald_green">#10B981</color>
+    <color name="ruby_crimson">#DC2626</color>
+    <color name="emerald_green">#059669</color>
     <color name="whatsapp_green">#25D366</color>
+    <color name="tag_blue_bg">#EFF6FF</color>
+    <color name="tag_blue_text">#1D4ED8</color>
+    <color name="tag_purple_bg">#FAF5FF</color>
+    <color name="tag_purple_text">#7E22CE</color>
+
+    <!-- Shadows & Scrim -->
+    <color name="scrim_bottom">#B3000000</color>
+    <color name="scrim_top">#4D000000</color>
     <color name="transparent">#00000000</color>
     <color name="scrim_gradient_start">#CC000000</color>
     <color name="scrim_gradient_end">#00000000</color>

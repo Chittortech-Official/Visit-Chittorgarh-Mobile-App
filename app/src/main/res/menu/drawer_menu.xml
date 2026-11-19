@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_explore"
+            android:icon="@drawable/ic_nav_explore"
+            android:title="Citadel Attractions &amp; Sites" />
+        <item
+            android:id="@+id/drawer_audio"
+            android:icon="@drawable/ic_nav_audio"
+            android:title="Audio Guide &amp; Stories" />
+        <item
+            android:id="@+id/drawer_tours"
+            android:icon="@drawable/ic_nav_itinerary"
+            android:title="Curated Tour Circuits" />
+        <item
+            android:id="@+id/drawer_services"
+            android:icon="@drawable/ic_nav_services"
+            android:title="Cabs, Guides &amp; Services" />
+    </group>
+
+    <item android:title="Visitor Essentials">
+        <menu>
+            <item
+                android:id="@+id/drawer_tickets"
+                android:icon="@drawable/ic_ticket"
+                android:title="ASI Timings &amp; Tickets" />
+            <item
+                android:id="@+id/drawer_cabs"
+                android:icon="@drawable/ic_directions"
+                android:title="Book Private Cab" />
+            <item
+                android:id="@+id/drawer_emergency"
+                android:icon="@drawable/ic_phone"
+                android:title="Emergency Helplines (112)" />
+        </menu>
+    </item>
+
+    <item android:title="Connect &amp; Support">
+        <menu>
+            <item
+                android:id="@+id/drawer_whatsapp"
+                android:icon="@drawable/ic_whatsapp"
+                android:title="WhatsApp Support" />
+            <item
+                android:id="@+id/drawer_website"
+                android:icon="@drawable/ic_share"
+                android:title="Visit Official Website" />
+        </menu>
+    </item>
+</menu>
+
