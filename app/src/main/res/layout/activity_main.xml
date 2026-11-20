@@ -58,7 +58,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Visit Chittorgarh"
+                        android:text="@string/app_name"
                         android:textColor="@color/text_primary"
                         android:textSize="17sp"
                         android:textStyle="bold"
@@ -68,7 +68,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Official Tourism &amp; Fort Guide"
+                        android:text="@string/app_tagline"
                         android:textColor="@color/accent_gold"
                         android:textSize="11sp"
                         android:textStyle="bold"
@@ -97,6 +97,30 @@
                     android:src="@drawable/ic_phone"
                     app:tint="@color/accent_gold"
                     android:contentDescription="Call Helpline" />
+
+                <!-- Quick Language Change Pill -->
+                <LinearLayout
+                    android:id="@+id/btnHeaderLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_btn_circle_call"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp"
+                    android:contentDescription="@string/change_language">
+
+                    <TextView
+                        android:id="@+id/txtHeaderLanguage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌐 EN"
+                        android:textColor="@color/accent_gold"
+                        android:textSize="11.5sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
 
             <View
@@ -181,7 +205,7 @@
                             android:background="@drawable/bg_chip_selected"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="8dp"
-                            android:text="🏰 All Sites"
+                            android:text="@string/cat_all"
                             android:textColor="@color/surface_white"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -194,7 +218,7 @@
                             android:background="@drawable/bg_chip_unselected"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="8dp"
-                            android:text="❤️ Saved"
+                            android:text="@string/cat_saved"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
 
@@ -206,7 +230,7 @@
                             android:background="@drawable/bg_chip_unselected"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="8dp"
-                            android:text="🏆 Victory Towers"
+                            android:text="@string/cat_towers"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
 
@@ -218,7 +242,7 @@
                             android:background="@drawable/bg_chip_unselected"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="8dp"
-                            android:text="👑 Royal Palaces"
+                            android:text="@string/cat_palaces"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
 
@@ -230,7 +254,7 @@
                             android:background="@drawable/bg_chip_unselected"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="8dp"
-                            android:text="🛕 Sacred Temples"
+                            android:text="@string/cat_temples"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
 
@@ -242,7 +266,7 @@
                             android:background="@drawable/bg_chip_unselected"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="8dp"
-                            android:text="💧 Water Reservoirs"
+                            android:text="@string/cat_waterbodies"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
 
@@ -254,7 +278,7 @@
                             android:background="@drawable/bg_chip_unselected"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="8dp"
-                            android:text="🚪 Fort Gates (Pol)"
+                            android:text="@string/cat_gates"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -395,7 +419,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Curated Fort Circuits"
+                        android:text="@string/itineraries_title"
                         android:textColor="@color/text_primary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -404,7 +428,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Optimized walking &amp; driving routes designed by local historians"
+                        android:text="@string/itineraries_subtitle"
                         android:textColor="@color/accent_gold"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -479,7 +503,7 @@
                                     android:insetTop="0dp"
                                     android:insetBottom="0dp"
                                     android:backgroundTint="@color/surface_secondary"
-                                    android:text="Helpline"
+                                    android:text="@string/call_tourist_helpline"
                                     android:textAllCaps="false"
                                     android:textColor="@color/text_primary"
                                     android:textSize="12.5sp"
@@ -525,7 +549,7 @@
                                     android:layout_marginEnd="6dp"
                                     android:insetTop="0dp"
                                     android:insetBottom="0dp"
-                                    android:text="Control Room"
+                                    android:text="@string/call_fort_control"
                                     android:textAllCaps="false"
                                     android:textColor="@color/accent_gold"
                                     android:textSize="12sp"
@@ -542,7 +566,7 @@
                                     android:layout_marginStart="6dp"
                                     android:insetTop="0dp"
                                     android:insetBottom="0dp"
-                                    android:text="Police (112)"
+                                    android:text="@string/call_police"
                                     android:textAllCaps="false"
                                     android:textColor="@color/ruby_crimson"
                                     android:textSize="12sp"

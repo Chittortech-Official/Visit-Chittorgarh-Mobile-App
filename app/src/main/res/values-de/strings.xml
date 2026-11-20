@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Besuche Chittorgarh</string>
+    <string name="app_tagline">Offizieller Reiseführer für Festung &amp; Mewar</string>
+    <string name="website_url">https://www.visitchittorgarh.in/</string>
+
+    <!-- Bottom Navigation -->
+    <string name="tab_explore">Entdecken</string>
+    <string name="tab_audio">Audio</string>
+    <string name="tab_tours">Touren</string>
+    <string name="tab_services">Dienste</string>
+
+    <!-- Language Selector -->
+    <string name="change_language">Sprache</string>
+    <string name="select_language_title">App-Sprache auswählen</string>
+    <string name="language_changed_toast">Sprache auf Deutsch geändert</string>
+
+    <!-- Explore Screen -->
+    <string name="search_hint">Denkmäler, Paläste, Tempel suchen...</string>
+    <string name="hero_title">Stolz von Rajputana</string>
+    <string name="hero_subtitle">Erkunden Sie Indiens größte 700-Morgen-UNESCO-Zitadelle</string>
+    <string name="stat_acres">700 Morgen</string>
+    <string name="stat_waterbodies">65+ Gewässer</string>
+    <string name="stat_gates">7 Königstore</string>
+    <string name="stat_unesco">UNESCO-Stätte</string>
+
+    <!-- Categories -->
+    <string name="cat_all">🏰 Alle Stätten</string>
+    <string name="cat_saved">❤️ Gespeichert</string>
+    <string name="cat_towers">🏆 Siegestürme</string>
+    <string name="cat_palaces">👑 Paläste</string>
+    <string name="cat_temples">🛕 Heilige Tempel</string>
+    <string name="cat_waterbodies">💧 Wasserbecken</string>
+    <string name="cat_gates">🛡️ Festungstore</string>
+
+    <!-- Audio Guide -->
+    <string name="audio_guide_title">Mewar Kulturerbe Audioguide</string>
+    <string name="audio_guide_subtitle">Hören Sie die Legenden von Maharana Kumbha und Rani Padmini</string>
+    <string name="now_playing">Wird abgespielt</string>
+    <string name="speech_rate_normal">1.0x Tempo</string>
+    <string name="speech_rate_slow">0.85x Tempo</string>
+    <string name="speech_rate_fast">1.2x Tempo</string>
+    <string name="all_audio_stories">Alle Audiogeschichten (10 Wahrzeichen)</string>
+    <string name="audio_story_meta">🎧 2 Min. Geschichte • Mewar-Erbe</string>
+
+    <!-- Tours & Itineraries -->
+    <string name="itineraries_title">Kuratierte Festungsrouten</string>
+    <string name="itineraries_subtitle">Spazier- und Fahrstrecken für Touristen konzipiert</string>
+    <string name="start_tour_in_maps">In Google Maps starten</string>
+
+    <!-- Services & Info -->
+    <string name="services_title">Touristendienste &amp; Wichtiges</string>
+    <string name="services_subtitle">Geprüfte Guides, klimatisierte Taxis, ASI-Tickets &amp; Notruf</string>
+    <string name="book_guide_whatsapp">Guide über WhatsApp buchen</string>
+    <string name="book_taxi_whatsapp">Privates Taxi buchen</string>
+    <string name="call_tourist_helpline">Helpline</string>
+    <string name="call_fort_control">Kontrollraum</string>
+    <string name="call_police">Polizei (112)</string>
+    <string name="call_ambulance">Krankenwagen (108)</string>
+
+    <!-- Ticket & Timings -->
+    <string name="timings_info">Festung geöffnet: Täglich 4:00 – 22:00 Uhr&#10;Denkmäler &amp; Museum: 9:00 – 17:00 Uhr</string>
+    <string name="tickets_info">Indische Bürger: ₹40 | Ausländische Touristen: ₹600&#10;SAARC / BIMSTEC: ₹40 | Kinder &lt; 15 J.: Frei</string>
+    <string name="light_sound_info">Klang- und Lichtshow im Kumbha-Palast:&#10;Hindi-Show: 19:00 Uhr | Englische Show: 20:00 Uhr&#10;Ticket: ₹50 – ₹100 pro Person</string>
+
+    <!-- Drawer Navigation -->
+    <string name="drawer_sites">Sehenswürdigkeiten der Festung</string>
+    <string name="drawer_audio_guide">Audioguide &amp; Historische Geschichten</string>
+    <string name="drawer_tour_circuits">Kuratierte Rundgänge</string>
+    <string name="drawer_cabs_guides">Taxis, Guides &amp; Services</string>
+    <string name="drawer_vip_section">👑 VIP- &amp; Auslandspakete</string>
+    <string name="drawer_vip_package">VIP-Erbe-Paket für Gäste (~$35 USD)</string>
+    <string name="drawer_photo_tour">Sonnenaufgang &amp; Fototour (~$22 USD)</string>
+    <string name="drawer_visitor_essentials">Besucher-Informationen</string>
+    <string name="drawer_asi_tickets">Öffnungszeiten &amp; ASI-Tickets</string>
+    <string name="drawer_book_cab">Privates Taxi buchen</string>
+    <string name="drawer_helpline_112">Notrufnummern (112)</string>
+    <string name="drawer_connect_support">Kontakt &amp; Support</string>
+    <string name="drawer_whatsapp_support">WhatsApp Support</string>
+    <string name="drawer_official_website">Offizielle Website besuchen</string>
+    <string name="drawer_language_opt">🌐 Sprache ändern / Language</string>
+
+    <!-- Actions -->
+    <string name="action_directions">Route</string>
+    <string name="action_audio">Audioguide</string>
+    <string name="action_details">Details</string>
+    <string name="action_share">Teilen</string>
+    <string name="action_saved">Zu Favoriten hinzugefügt</string>
+    <string name="action_removed">Aus Favoriten entfernt</string>
+
+    <!-- Monument Detail Screen -->
+    <string name="detail_title">Denkmaldetails</string>
+    <string name="detail_audio_narration">Audio-Erzählung</string>
+    <string name="detail_about_monument">Über das Denkmal</string>
+    <string name="detail_history_heritage">Geschichte &amp; Kulturerbe</string>
+    <string name="detail_architectural_marvel">Architektonische Besonderheiten</string>
+    <string name="detail_highlights">Hauptmerkmale</string>
+    <string name="detail_visitor_guide">Besucherführer</string>
+    <string name="detail_timings">Öffnungszeiten</string>
+    <string name="detail_entry_fee">Eintrittspreis</string>
+    <string name="detail_best_time">Beste Besuchszeit</string>
+
+    <!-- Offline Helplines -->
+    <string name="helpline_phone">+91 7597451057</string>
+    <string name="fort_control_phone">01472241564</string>
+</resources>
+

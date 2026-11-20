@@ -11,6 +11,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.imageview.ShapeableImageView
 import `in`.visitchittorgarh.fort.tour.guide.R
 import `in`.visitchittorgarh.fort.tour.guide.data.model.Monument
+import `in`.visitchittorgarh.fort.tour.guide.util.LanguageManager
 
 class AudioStoryAdapter(
     private val stories: List<Monument>,
@@ -46,10 +47,18 @@ class AudioStoryAdapter(
         private val btnPlayStop: ImageView = itemView.findViewById(R.id.btnPlayStop)
 
         fun bind(monument: Monument) {
+            val context = itemView.context
+            val currentLang = LanguageManager.getSelectedLanguageCode(context)
             imgThumb.setImageResource(monument.imageRes)
-            txtAudioTitle.text = monument.name
-            txtAudioHindi.text = monument.hindiName
-            txtAudioCategory.text = "🎧 2 min story • Mewar Heritage"
+
+            if (currentLang == "hi") {
+                txtAudioTitle.text = monument.hindiName
+                txtAudioHindi.text = monument.name
+            } else {
+                txtAudioTitle.text = monument.name
+                txtAudioHindi.text = monument.hindiName
+            }
+            txtAudioCategory.text = context.getString(R.string.audio_story_meta)
 
             val isPlaying = currentPlayingId == monument.id
 

@@ -4,62 +4,65 @@
         <item
             android:id="@+id/drawer_explore"
             android:icon="@drawable/ic_nav_explore"
-            android:title="Citadel Attractions &amp; Sites" />
+            android:title="@string/drawer_sites" />
         <item
             android:id="@+id/drawer_audio"
             android:icon="@drawable/ic_nav_audio"
-            android:title="Audio Guide &amp; Stories" />
+            android:title="@string/drawer_audio_guide" />
         <item
             android:id="@+id/drawer_tours"
             android:icon="@drawable/ic_nav_itinerary"
-            android:title="Curated Tour Circuits" />
+            android:title="@string/drawer_tour_circuits" />
         <item
             android:id="@+id/drawer_services"
             android:icon="@drawable/ic_nav_services"
-            android:title="Cabs, Guides &amp; Services" />
+            android:title="@string/drawer_cabs_guides" />
     </group>
 
-    <item android:title="👑 VIP &amp; Foreign Guest Packages">
+    <item android:title="@string/drawer_vip_section">
         <menu>
             <item
                 android:id="@+id/drawer_vip_tour"
                 android:icon="@drawable/ic_nav_explore"
-                android:title="VIP Foreign Guest Package (~$35 USD)" />
+                android:title="@string/drawer_vip_package" />
             <item
                 android:id="@+id/drawer_photo_tour"
                 android:icon="@drawable/ic_nav_itinerary"
-                android:title="Sunrise &amp; Golden Hour Photo Tour" />
+                android:title="@string/drawer_photo_tour" />
         </menu>
     </item>
 
-    <item android:title="Visitor Essentials">
+    <item android:title="@string/drawer_visitor_essentials">
         <menu>
             <item
                 android:id="@+id/drawer_tickets"
                 android:icon="@drawable/ic_ticket"
-                android:title="ASI Timings &amp; Tickets" />
+                android:title="@string/drawer_asi_tickets" />
             <item
                 android:id="@+id/drawer_cabs"
                 android:icon="@drawable/ic_directions"
-                android:title="Book Private Cab" />
+                android:title="@string/drawer_book_cab" />
             <item
                 android:id="@+id/drawer_emergency"
                 android:icon="@drawable/ic_phone"
-                android:title="Emergency Helplines (112)" />
+                android:title="@string/drawer_helpline_112" />
         </menu>
     </item>
 
-    <item android:title="Connect &amp; Support">
+    <item android:title="@string/drawer_connect_support">
         <menu>
+            <item
+                android:id="@+id/drawer_language"
+                android:icon="@drawable/ic_nav_explore"
+                android:title="@string/drawer_language_opt" />
             <item
                 android:id="@+id/drawer_whatsapp"
                 android:icon="@drawable/ic_whatsapp"
-                android:title="WhatsApp Support" />
+                android:title="@string/drawer_whatsapp_support" />
             <item
                 android:id="@+id/drawer_website"
                 android:icon="@drawable/ic_share"
-                android:title="Visit Official Website" />
+                android:title="@string/drawer_official_website" />
         </menu>
     </item>
 </menu>
-

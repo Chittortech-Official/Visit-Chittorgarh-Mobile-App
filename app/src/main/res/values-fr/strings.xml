@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Visitez Chittorgarh</string>
+    <string name="app_tagline">Guide Officiel du Fort &amp; Tourisme</string>
+    <string name="website_url">https://www.visitchittorgarh.in/</string>
+
+    <!-- Bottom Navigation -->
+    <string name="tab_explore">Explorer</string>
+    <string name="tab_audio">Audio</string>
+    <string name="tab_tours">Circuits</string>
+    <string name="tab_services">Services</string>
+
+    <!-- Language Selector -->
+    <string name="change_language">Langue</string>
+    <string name="select_language_title">Choisir la langue</string>
+    <string name="language_changed_toast">Langue changée en français</string>
+
+    <!-- Explore Screen -->
+    <string name="search_hint">Monuments, palais, temples...</string>
+    <string name="hero_title">Fierté du Rajputana</string>
+    <string name="hero_subtitle">Explorez la citadelle UNESCO de 700 acres</string>
+    <string name="stat_acres">700 Acres</string>
+    <string name="stat_waterbodies">65+ Réservoirs</string>
+    <string name="stat_gates">7 Portes Royales</string>
+    <string name="stat_unesco">Site UNESCO</string>
+
+    <!-- Categories -->
+    <string name="cat_all">🏰 Tous les sites</string>
+    <string name="cat_saved">❤️ Favoris</string>
+    <string name="cat_towers">🏆 Tours de Victoire</string>
+    <string name="cat_palaces">👑 Palais</string>
+    <string name="cat_temples">🛕 Temples Sacrés</string>
+    <string name="cat_waterbodies">💧 Réservoirs</string>
+    <string name="cat_gates">🛡️ Portes Royales</string>
+
+    <!-- Audio Guide -->
+    <string name="audio_guide_title">Guide Audio du Patrimoine</string>
+    <string name="audio_guide_subtitle">Écoutez les récits du Maharana Kumbha et de la Reine Padmini</string>
+    <string name="now_playing">Lecture en cours</string>
+    <string name="speech_rate_normal">Vitesse 1.0x</string>
+    <string name="speech_rate_slow">Vitesse 0.85x</string>
+    <string name="speech_rate_fast">Vitesse 1.2x</string>
+    <string name="all_audio_stories">Récits audio (10 monuments)</string>
+    <string name="audio_story_meta">🎧 Récit 2 min • Histoire du Mewar</string>
+
+    <!-- Tours & Itineraries -->
+    <string name="itineraries_title">Circuits Recommandés</string>
+    <string name="itineraries_subtitle">Itinéraires pédestres et en véhicule conçus pour les visiteurs</string>
+    <string name="start_tour_in_maps">Démarrer dans Google Maps</string>
+
+    <!-- Services & Info -->
+    <string name="services_title">Services Touristiques &amp; Essentiels</string>
+    <string name="services_subtitle">Guides certifiés, taxis climatisés, billets ASI et assistance</string>
+    <string name="book_guide_whatsapp">Réserver un Guide via WhatsApp</string>
+    <string name="book_taxi_whatsapp">Réserver un Taxi Privé</string>
+    <string name="call_tourist_helpline">Assistance</string>
+    <string name="call_fort_control">Poste Fort</string>
+    <string name="call_police">Police (112)</string>
+    <string name="call_ambulance">Ambulance (108)</string>
+
+    <!-- Ticket & Timings -->
+    <string name="timings_info">Fort ouvert : 4h00 – 22h00 tous les jours&#10;Monuments &amp; Musée : 9h00 – 17h00</string>
+    <string name="tickets_info">Citoyens indiens : 40 ₹ | Visiteurs étrangers : 600 ₹&#10;SAARC / BIMSTEC : 40 ₹ | Enfants &lt; 15 ans : Gratuit</string>
+    <string name="light_sound_info">Spectacle Son et Lumière au Palais Kumbha :&#10;Spectacle hindi : 19h00 | Spectacle anglais : 20h00&#10;Billet : 50 – 100 ₹ par personne</string>
+
+    <!-- Drawer Navigation -->
+    <string name="drawer_sites">Attractions &amp; Monuments du Fort</string>
+    <string name="drawer_audio_guide">Guide Audio &amp; Récits Historiques</string>
+    <string name="drawer_tour_circuits">Circuits de Visite Guidés</string>
+    <string name="drawer_cabs_guides">Taxis, Guides &amp; Services</string>
+    <string name="drawer_vip_section">👑 Forfaits VIP &amp; Visiteurs Étrangers</string>
+    <string name="drawer_vip_package">Forfait VIP Histoires &amp; Voiture (~$35 USD)</string>
+    <string name="drawer_photo_tour">Circuit Photographie Lever de Soleil (~$22 USD)</string>
+    <string name="drawer_visitor_essentials">Services aux Visiteurs</string>
+    <string name="drawer_asi_tickets">Horaires &amp; Billets ASI</string>
+    <string name="drawer_book_cab">Réserver un Taxi Privé</string>
+    <string name="drawer_helpline_112">Lignes d\'Urgence (112)</string>
+    <string name="drawer_connect_support">Contact &amp; Assistance</string>
+    <string name="drawer_whatsapp_support">Assistance WhatsApp</string>
+    <string name="drawer_official_website">Site Web Officiel</string>
+    <string name="drawer_language_opt">🌐 Changer de Langue / Language</string>
+
+    <!-- Actions -->
+    <string name="action_directions">Itinéraire</string>
+    <string name="action_audio">Guide Audio</string>
+    <string name="action_details">Détails</string>
+    <string name="action_share">Partager</string>
+    <string name="action_saved">Ajouté aux favoris</string>
+    <string name="action_removed">Retiré des favoris</string>
+
+    <!-- Monument Detail Screen -->
+    <string name="detail_title">Détails du Monument</string>
+    <string name="detail_audio_narration">Narration Audio</string>
+    <string name="detail_about_monument">À propos du monument</string>
+    <string name="detail_history_heritage">Histoire &amp; Patrimoine</string>
+    <string name="detail_architectural_marvel">Merveille Architecturale</string>
+    <string name="detail_highlights">Points Forts</string>
+    <string name="detail_visitor_guide">Guide du Visiteur</string>
+    <string name="detail_timings">Horaires</string>
+    <string name="detail_entry_fee">Tarif d\'entrée</string>
+    <string name="detail_best_time">Meilleur moment</string>
+
+    <!-- Offline Helplines -->
+    <string name="helpline_phone">+91 7597451057</string>
+    <string name="fort_control_phone">01472241564</string>
+</resources>
+

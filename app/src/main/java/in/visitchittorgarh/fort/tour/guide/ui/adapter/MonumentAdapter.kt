@@ -10,6 +10,7 @@ import com.google.android.material.button.MaterialButton
 import `in`.visitchittorgarh.fort.tour.guide.R
 import `in`.visitchittorgarh.fort.tour.guide.data.model.Monument
 import `in`.visitchittorgarh.fort.tour.guide.data.repository.FavoritesManager
+import `in`.visitchittorgarh.fort.tour.guide.util.LanguageManager
 
 class MonumentAdapter(
     private var allMonuments: List<Monument>,
@@ -74,10 +75,18 @@ class MonumentAdapter(
         private val btnDirections: MaterialButton = itemView.findViewById(R.id.btnDirections)
 
         fun bind(monument: Monument) {
+            val context = itemView.context
+            val currentLang = LanguageManager.getSelectedLanguageCode(context)
             imgMonument.setImageResource(monument.imageRes)
             txtCategory.text = monument.category.uppercase()
-            txtName.text = monument.name
-            txtHindiName.text = monument.hindiName
+
+            if (currentLang == "hi") {
+                txtName.text = monument.hindiName
+                txtHindiName.text = monument.name
+            } else {
+                txtName.text = monument.name
+                txtHindiName.text = monument.hindiName
+            }
             txtTagline.text = monument.tagline
             txtDescription.text = monument.description
 

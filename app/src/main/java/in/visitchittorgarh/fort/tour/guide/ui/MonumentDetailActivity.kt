@@ -17,6 +17,7 @@ import `in`.visitchittorgarh.fort.tour.guide.data.model.Monument
 import `in`.visitchittorgarh.fort.tour.guide.data.repository.ChittorgarhDataRepository
 import `in`.visitchittorgarh.fort.tour.guide.data.repository.FavoritesManager
 import `in`.visitchittorgarh.fort.tour.guide.util.AudioNarrator
+import `in`.visitchittorgarh.fort.tour.guide.util.LanguageManager
 
 class MonumentDetailActivity : AppCompatActivity() {
 
@@ -113,7 +114,8 @@ class MonumentDetailActivity : AppCompatActivity() {
     }
 
     private fun setupAudio() {
-        audioNarrator = AudioNarrator(this) { isReady ->
+        val currentLocale = LanguageManager.getLocale(this)
+        audioNarrator = AudioNarrator(this, currentLocale) { isReady ->
             if (isReady) {
                 audioNarrator?.onSpeechStateChange = { isSpeaking, _ ->
                     runOnUiThread {
@@ -169,10 +171,16 @@ class MonumentDetailActivity : AppCompatActivity() {
     }
 
     private fun bindData() {
+        val currentLang = LanguageManager.getSelectedLanguageCode(this)
         imgDetailHeader.setImageResource(monument.imageRes)
         txtDetailCategory.text = monument.category.uppercase()
-        txtDetailTitle.text = monument.name
-        txtDetailHindiTitle.text = monument.hindiName
+        if (currentLang == "hi") {
+            txtDetailTitle.text = monument.hindiName
+            txtDetailHindiTitle.text = monument.name
+        } else {
+            txtDetailTitle.text = monument.name
+            txtDetailHindiTitle.text = monument.hindiName
+        }
         txtDetailTimings.text = monument.timings
         txtDetailBestTime.text = monument.bestTime
         txtDetailTagline.text = monument.tagline

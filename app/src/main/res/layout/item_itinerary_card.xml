@@ -110,7 +110,7 @@
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:backgroundTint="@color/accent_gold"
-                android:text="Start Tour in Google Maps"
+                android:text="@string/start_tour_in_maps"
                 android:textAllCaps="false"
                 android:textColor="@color/surface_white"
                 android:textSize="13.5sp"

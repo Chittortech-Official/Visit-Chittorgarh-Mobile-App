@@ -36,6 +36,7 @@ import `in`.visitchittorgarh.fort.tour.guide.ui.adapter.ItineraryAdapter
 import `in`.visitchittorgarh.fort.tour.guide.ui.adapter.MonumentAdapter
 import `in`.visitchittorgarh.fort.tour.guide.ui.adapter.ServiceAdapter
 import `in`.visitchittorgarh.fort.tour.guide.util.AudioNarrator
+import `in`.visitchittorgarh.fort.tour.guide.util.LanguageManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -122,6 +123,15 @@ class MainActivity : AppCompatActivity() {
         btnHeaderWhatsApp = findViewById(R.id.btnHeaderWhatsApp)
         btnHeaderCall = findViewById(R.id.btnHeaderCall)
 
+        val btnHeaderLanguage: LinearLayout = findViewById(R.id.btnHeaderLanguage)
+        val txtHeaderLanguage: TextView = findViewById(R.id.txtHeaderLanguage)
+        val currentLang = LanguageManager.getSelectedLanguage(this)
+        txtHeaderLanguage.text = "${currentLang.flag} ${currentLang.code.uppercase()}"
+
+        btnHeaderLanguage.setOnClickListener {
+            showLanguageSelectionDialog()
+        }
+
         btnHamburger.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -163,6 +173,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.drawer_emergency -> {
                     dialNumber(HELPLINE_NUMBER)
                 }
+                R.id.drawer_language -> {
+                    showLanguageSelectionDialog()
+                }
                 R.id.drawer_whatsapp -> {
                     openWhatsApp("Namaste Visit Chittorgarh! Please guide me with official tour assistance.")
                 }
@@ -174,19 +187,40 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showLanguageSelectionDialog() {
+        val languages = LanguageManager.SUPPORTED_LANGUAGES
+        val currentCode = LanguageManager.getSelectedLanguageCode(this)
+        val names = languages.map { "${it.flag}  ${it.nativeName} (${it.englishName})" }.toTypedArray()
+        val checkedIndex = languages.indexOfFirst { it.code == currentCode }.coerceAtLeast(0)
+
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.select_language_title)
+            .setSingleChoiceItems(names, checkedIndex) { dialog, which ->
+                val selected = languages[which]
+                if (selected.code != currentCode) {
+                    LanguageManager.setLanguage(this, selected.code)
+                    Toast.makeText(this, "${selected.flag} ${selected.nativeName}", Toast.LENGTH_SHORT).show()
+                }
+                dialog.dismiss()
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
     private fun setupAudio() {
-        audioNarrator = AudioNarrator(this) { isReady ->
+        val currentLocale = LanguageManager.getLocale(this)
+        audioNarrator = AudioNarrator(this, currentLocale) { isReady ->
             if (isReady) {
                 audioNarrator?.onSpeechStateChange = { isSpeaking, utteranceId ->
                     runOnUiThread {
                         if (isSpeaking) {
                             fabTabPlayAudio.setImageResource(R.drawable.ic_pause)
-                            txtAudioNowPlayingStatus.text = "Now narrating..."
+                            txtAudioNowPlayingStatus.text = getString(R.string.now_playing)
                             txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.accent_gold))
                             audioStoryAdapter.setPlayingId(utteranceId)
                         } else {
                             fabTabPlayAudio.setImageResource(R.drawable.ic_play_arrow)
-                            txtAudioNowPlayingStatus.text = "Paused / Stopped"
+                            txtAudioNowPlayingStatus.text = getString(R.string.audio_guide_subtitle)
                             txtAudioNowPlayingStatus.setTextColor(ContextCompat.getColor(this, R.color.text_muted))
                             audioStoryAdapter.setPlayingId(null)
                         }

@@ -5,7 +5,11 @@ import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import java.util.Locale
 
-class AudioNarrator(context: Context, private val onInitListener: ((Boolean) -> Unit)? = null) : TextToSpeech.OnInitListener {
+class AudioNarrator(
+    context: Context,
+    private var currentLocale: Locale = Locale.ENGLISH,
+    private val onInitListener: ((Boolean) -> Unit)? = null
+) : TextToSpeech.OnInitListener {
 
     private var tts: TextToSpeech? = TextToSpeech(context.applicationContext, this)
     private var isInitialized = false
@@ -16,8 +20,7 @@ class AudioNarrator(context: Context, private val onInitListener: ((Boolean) -> 
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = tts?.setLanguage(Locale.ENGLISH)
-            isInitialized = result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED
+            applyLocale(currentLocale)
             tts?.setSpeechRate(currentRate)
 
             tts?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
@@ -42,6 +45,22 @@ class AudioNarrator(context: Context, private val onInitListener: ((Boolean) -> 
             isInitialized = false
             onInitListener?.invoke(false)
         }
+    }
+
+    fun setLocale(locale: Locale) {
+        currentLocale = locale
+        if (isInitialized) {
+            applyLocale(locale)
+        }
+    }
+
+    private fun applyLocale(locale: Locale) {
+        val result = tts?.setLanguage(locale)
+        if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            // Fallback to English if device TTS has not downloaded this language voice pack
+            tts?.setLanguage(Locale.ENGLISH)
+        }
+        isInitialized = true
     }
 
     fun play(id: String, text: String) {
@@ -79,4 +98,3 @@ class AudioNarrator(context: Context, private val onInitListener: ((Boolean) -> 
         tts = null
     }
 }
-

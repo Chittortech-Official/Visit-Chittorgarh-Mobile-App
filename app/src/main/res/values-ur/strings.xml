@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">چتوڑ گڑھ گائیڈ</string>
+    <string name="app_tagline">سرکاری سیاحتی اور قلعہ گائیڈ</string>
+    <string name="website_url">https://www.visitchittorgarh.in/</string>
+
+    <!-- Bottom Navigation -->
+    <string name="tab_explore">دریافت</string>
+    <string name="tab_audio">آڈیو</string>
+    <string name="tab_tours">دورے</string>
+    <string name="tab_services">خدمات</string>
+
+    <!-- Language Selector -->
+    <string name="change_language">زبان</string>
+    <string name="select_language_title">ایپ کی زبان منتخب کریں</string>
+    <string name="language_changed_toast">زبان اردو میں تبدیل کر دی گئی ہے</string>
+
+    <!-- Explore Screen -->
+    <string name="search_hint">یادگاریں، محلات، مندر تلاش کریں...</string>
+    <string name="hero_title">راجپوتانہ کا فخر</string>
+    <string name="hero_subtitle">بھارت کے 700 ایکڑ پر محیط یونیسکو قلعہ کی سیر کریں</string>
+    <string name="stat_acres">700 ایکڑ</string>
+    <string name="stat_waterbodies">65+ آبی ذخائر</string>
+    <string name="stat_gates">7 شاہی دروازے</string>
+    <string name="stat_unesco">یونیسکو ورثہ</string>
+
+    <!-- Categories -->
+    <string name="cat_all">🏰 تمام مقامات</string>
+    <string name="cat_saved">❤️ پسندیدہ</string>
+    <string name="cat_towers">🏆 فتح کے مینار</string>
+    <string name="cat_palaces">👑 شاہی محلات</string>
+    <string name="cat_temples">🛕 مقدس مندر</string>
+    <string name="cat_waterbodies">💧 تالاب و کنویں</string>
+    <string name="cat_gates">🛡️ قلعے کے دروازے</string>
+
+    <!-- Audio Guide -->
+    <string name="audio_guide_title">میواڑ ورثہ آڈیو گائیڈ</string>
+    <string name="audio_guide_subtitle">مہارانا کمبھا، رانی پدمنی اور میرا بائی کی داستانیں سنیں</string>
+    <string name="now_playing">جاری آڈیو</string>
+    <string name="speech_rate_normal">1.0x رفتار</string>
+    <string name="speech_rate_slow">0.85x رفتار</string>
+    <string name="speech_rate_fast">1.2x رفتار</string>
+    <string name="all_audio_stories">تمام آڈیو کہانیاں (10 اہم مقامات)</string>
+    <string name="audio_story_meta">🎧 2 منٹ کہانی • میواڑ ورثہ</string>
+
+    <!-- Tours & Itineraries -->
+    <string name="itineraries_title">قلعے کے خصوصی راستے</string>
+    <string name="itineraries_subtitle">سیاحوں کے لیے پیدل اور گاڑیوں کے منتخب راستے</string>
+    <string name="start_tour_in_maps">گوگل میپس میں شروع کریں</string>
+
+    <!-- Services & Info -->
+    <string name="services_title">سیاحتی خدمات اور سہولیات</string>
+    <string name="services_subtitle">تصدیق شدہ گائیڈز، آرام دہ ٹیکسیاں اور ہیلپ لائن</string>
+    <string name="book_guide_whatsapp">واٹس ایپ پر گائیڈ بک کریں</string>
+    <string name="book_taxi_whatsapp">ٹیکسی بک کریں</string>
+    <string name="call_tourist_helpline">ہیلپ لائن</string>
+    <string name="call_fort_control">کنٹرول روم</string>
+    <string name="call_police">پولیس (112)</string>
+    <string name="call_ambulance">ایمبولینس (108)</string>
+
+    <!-- Ticket & Timings -->
+    <string name="timings_info">قلعہ کھلا ہے: روزانہ صبح 4:00 تا رات 10:00&#10;یادگاریں اور عجائب گھر: صبح 9:00 تا شام 5:00</string>
+    <string name="tickets_info">ہندوستانی شہری: ₹40 | غیر ملکی سیاح: ₹600&#10;سارک ممالک: ₹40 | 15 سال سے کم بچے: مفت</string>
+    <string name="light_sound_info">کمبھا محل میں لائٹ اینڈ ساؤنڈ شو:&#10;ہندی شو: شام 7:00 | انگریزی شو: رات 8:00&#10;ٹکٹ: ₹50 تا ₹100 فی کس</string>
+
+    <!-- Drawer Navigation -->
+    <string name="drawer_sites">قلعے کے اہم مقامات</string>
+    <string name="drawer_audio_guide">آڈیو گائیڈ اور تاریخ</string>
+    <string name="drawer_tour_circuits">سیاحتی راستے</string>
+    <string name="drawer_cabs_guides">ٹیکسیاں، گائیڈز اور خدمات</string>
+    <string name="drawer_vip_section">👑 وی آئی پی اور غیر ملکی پیکجز</string>
+    <string name="drawer_vip_package">وی آئی پی گیسٹ پیکج (~$35 USD)</string>
+    <string name="drawer_photo_tour">طلوع آفتاب فوٹوگرافی ٹور (~$22 USD)</string>
+    <string name="drawer_visitor_essentials">سیاحتی سہولیات</string>
+    <string name="drawer_asi_tickets">اوقات اور ٹکٹ</string>
+    <string name="drawer_book_cab">پرائیویٹ ٹیکسی بک کریں</string>
+    <string name="drawer_helpline_112">ایمرجنسی ہیلپ لائن (112)</string>
+    <string name="drawer_connect_support">رابطہ اور مدد</string>
+    <string name="drawer_whatsapp_support">واٹس ایپ سپورٹ</string>
+    <string name="drawer_official_website">سرکاری ویب سائٹ دیکھیں</string>
+    <string name="drawer_language_opt">🌐 زبان تبدیل کریں (Language)</string>
+
+    <!-- Actions -->
+    <string name="action_directions">راستہ</string>
+    <string name="action_audio">آڈیو گائیڈ</string>
+    <string name="action_details">تفصیلات</string>
+    <string name="action_share">شیئر کریں</string>
+    <string name="action_saved">پسندیدہ میں شامل</string>
+    <string name="action_removed">پسندیدہ سے خارج</string>
+
+    <!-- Monument Detail Screen -->
+    <string name="detail_title">یادگار کی تفصیلات</string>
+    <string name="detail_audio_narration">آڈیو بیان</string>
+    <string name="detail_about_monument">یادگار کے بارے میں</string>
+    <string name="detail_history_heritage">تاریخ اور ورثہ</string>
+    <string name="detail_architectural_marvel">طرزِ تعمیر</string>
+    <string name="detail_highlights">اہم خصوصیات</string>
+    <string name="detail_visitor_guide">رہنمائے سیاح</string>
+    <string name="detail_timings">اوقات</string>
+    <string name="detail_entry_fee">داخلہ فیس</string>
+    <string name="detail_best_time">بہترین وقت</string>
+
+    <!-- Offline Helplines -->
+    <string name="helpline_phone">+91 7597451057</string>
+    <string name="fort_control_phone">01472241564</string>
+</resources>
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">विजिट चित्तौड़गढ़</string>
+    <string name="app_tagline">आधिकारिक पर्यटन एवं दुर्ग गाइड</string>
+    <string name="website_url">https://www.visitchittorgarh.in/</string>
+
+    <!-- Bottom Navigation -->
+    <string name="tab_explore">घूमें</string>
+    <string name="tab_audio">ऑडियो</string>
+    <string name="tab_tours">टूअर्स</string>
+    <string name="tab_services">सेवाएं</string>
+
+    <!-- Language Selector -->
+    <string name="change_language">भाषा</string>
+    <string name="select_language_title">ऐप की भाषा चुनें</string>
+    <string name="language_changed_toast">भाषा बदलकर हिन्दी कर दी गई है</string>
+
+    <!-- Explore Screen -->
+    <string name="search_hint">स्मारक, महल, मंदिर खोजें...</string>
+    <string name="hero_title">राजपूताना का गौरव</string>
+    <string name="hero_subtitle">भारत के 700 एकड़ के भव्य यूनेस्को दुर्ग का अन्वेषण करें</string>
+    <string name="stat_acres">700 एकड़</string>
+    <string name="stat_waterbodies">65+ जल निकाय</string>
+    <string name="stat_gates">7 शाही पोल</string>
+    <string name="stat_unesco">यूनेस्को धरोहर</string>
+
+    <!-- Categories -->
+    <string name="cat_all">🏰 सभी स्थल</string>
+    <string name="cat_saved">❤️ पसंदीदा</string>
+    <string name="cat_towers">🏆 विजय स्तम्भ</string>
+    <string name="cat_palaces">👑 महल</string>
+    <string name="cat_temples">🛕 पवित्र मंदिर</string>
+    <string name="cat_waterbodies">💧 जल कुंड</string>
+    <string name="cat_gates">🛡️ दुर्ग द्वार</string>
+
+    <!-- Audio Guide -->
+    <string name="audio_guide_title">मेवाड़ी धरोहर ऑडियो गाइड</string>
+    <string name="audio_guide_subtitle">महाराणा कुम्भा, रानी पद्मिनी व मीरा बाई की अमर गाथाएं सुनें</string>
+    <string name="now_playing">वर्तमान ऑडियो</string>
+    <string name="speech_rate_normal">1.0x गति</string>
+    <string name="speech_rate_slow">0.85x गति</string>
+    <string name="speech_rate_fast">1.2x गति</string>
+    <string name="all_audio_stories">सभी ऑडियो कथाएं (10 प्रमुख स्थल)</string>
+    <string name="audio_story_meta">🎧 2 मिनट कथा • मेवाड़ गौरव</string>
+
+    <!-- Tours & Itineraries -->
+    <string name="itineraries_title">विशेष दुर्ग परिपथ</string>
+    <string name="itineraries_subtitle">पर्यटकों के लिए तैयार किए गए पैदल व वाहन परिपथ</string>
+    <string name="start_tour_in_maps">गूगल मैप्स में शुरू करें</string>
+
+    <!-- Services & Info -->
+    <string name="services_title">पर्यटक सेवाएं व सुविधाएं</string>
+    <string name="services_subtitle">प्रमाणित गाइड, वातानुकूलित गाड़ियां, टिकट व हेल्पलाइन</string>
+    <string name="book_guide_whatsapp">व्हाट्सएप पर गाइड बुक करें</string>
+    <string name="book_taxi_whatsapp">टैक्सी / कैब बुक करें</string>
+    <string name="call_tourist_helpline">हेल्पलाइन</string>
+    <string name="call_fort_control">कंट्रोल रूम</string>
+    <string name="call_police">पुलिस (112)</string>
+    <string name="call_ambulance">एम्बुलेंस (108)</string>
+
+    <!-- Ticket & Timings -->
+    <string name="timings_info">दुर्ग खुला: प्रतिदिन प्रातः 4:00 – रात्रि 10:00&#10;स्मारक व संग्रहालय: प्रातः 9:00 – सायं 5:00</string>
+    <string name="tickets_info">भारतीय नागरिक: ₹40 | विदेशी पर्यटक: ₹600&#10;सार्क / बिम्सटेक: ₹40 | बच्चे &lt; 15 वर्ष: निःशुल्क</string>
+    <string name="light_sound_info">कुम्भा महल में लाइट एंड साउंड शो:&#10;हिन्दी शो: सायं 7:00 | अंग्रेजी शो: रात्रि 8:00&#10;टिकट: ₹50 – ₹100 प्रति व्यक्ति</string>
+
+    <!-- Drawer Navigation -->
+    <string name="drawer_sites">दुर्ग के प्रमुख आकर्षण व स्थल</string>
+    <string name="drawer_audio_guide">ऑडियो गाइड व ऐतिहासिक कथाएं</string>
+    <string name="drawer_tour_circuits">पर्यटक परिपथ व मार्ग</string>
+    <string name="drawer_cabs_guides">कैब, गाइड व सेवाएं</string>
+    <string name="drawer_vip_section">👑 वीआईपी व विदेशी अतिथि पैकेज</string>
+    <string name="drawer_vip_package">वीआईपी विदेशी हेरिटेज पैकेज (~$35 USD)</string>
+    <string name="drawer_photo_tour">सूर्योदय व फोटोग्राफी टूर (~$22 USD)</string>
+    <string name="drawer_visitor_essentials">यात्री सुविधाएं</string>
+    <string name="drawer_asi_tickets">टिकट व समय विवरण</string>
+    <string name="drawer_book_cab">प्राइवेट कैब बुक करें</string>
+    <string name="drawer_helpline_112">आपातकालीन हेल्पलाइन (112)</string>
+    <string name="drawer_connect_support">सम्पर्क व सहायता</string>
+    <string name="drawer_whatsapp_support">व्हाट्सएप सहायता</string>
+    <string name="drawer_official_website">आधिकारिक वेबसाइट देखें</string>
+    <string name="drawer_language_opt">🌐 भाषा बदलें (Language)</string>
+
+    <!-- Actions -->
+    <string name="action_directions">रास्ता देखें</string>
+    <string name="action_audio">ऑडियो सुनें</string>
+    <string name="action_details">विवरण देखें</string>
+    <string name="action_share">साझा करें</string>
+    <string name="action_saved">पसंदीदा में जोड़ा गया</string>
+    <string name="action_removed">पसंदीदा से हटाया गया</string>
+
+    <!-- Monument Detail Screen -->
+    <string name="detail_title">स्मारक विवरण</string>
+    <string name="detail_audio_narration">ऑडियो व्याख्या</string>
+    <string name="detail_about_monument">स्मारक के बारे में</string>
+    <string name="detail_history_heritage">इतिहास व गौरवशाली विरासत</string>
+    <string name="detail_architectural_marvel">वास्तुकला की विशेषताएं</string>
+    <string name="detail_highlights">प्रमुख विशेषताएं</string>
+    <string name="detail_visitor_guide">पर्यटक मार्गदर्शिका</string>
+    <string name="detail_timings">समय</string>
+    <string name="detail_entry_fee">प्रवेश शुल्क</string>
+    <string name="detail_best_time">भ्रमण का श्रेष्ठ समय</string>
+
+    <!-- Offline Helplines -->
+    <string name="helpline_phone">+91 7597451057</string>
+    <string name="fort_control_phone">01472241564</string>
+</resources>
+

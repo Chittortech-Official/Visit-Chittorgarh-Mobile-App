@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Visit Chittorgarh</string>
-    <string name="app_tagline">Official Chittorgarh Fort &amp; Mewar Heritage Guide</string>
+    <string name="app_tagline">Official Tourism &amp; Fort Guide</string>
     <string name="website_url">https://www.visitchittorgarh.in/</string>
+
+    <!-- Bottom Navigation -->
+    <string name="tab_explore">Explore</string>
+    <string name="tab_audio">Audio</string>
+    <string name="tab_tours">Tours</string>
+    <string name="tab_services">Services</string>
+
+    <!-- Language Selector -->
+    <string name="change_language">Language</string>
+    <string name="select_language_title">Select App Language</string>
+    <string name="language_changed_toast">Language changed successfully</string>
 
     <!-- Explore Screen -->
     <string name="search_hint">Search monuments, palaces, temples...</string>
@@ -14,12 +25,13 @@
     <string name="stat_unesco">UNESCO Site</string>
 
     <!-- Categories -->
-    <string name="cat_all">All Sites</string>
-    <string name="cat_palaces">Palaces</string>
-    <string name="cat_towers">Victory Towers</string>
-    <string name="cat_temples">Sacred Temples</string>
-    <string name="cat_waterbodies">Reservoirs</string>
-    <string name="cat_gates">Historic Gates</string>
+    <string name="cat_all">🏰 All Sites</string>
+    <string name="cat_saved">❤️ Saved</string>
+    <string name="cat_towers">🏆 Victory Towers</string>
+    <string name="cat_palaces">👑 Palaces</string>
+    <string name="cat_temples">🛕 Sacred Temples</string>
+    <string name="cat_waterbodies">💧 Reservoirs</string>
+    <string name="cat_gates">🛡️ Fort Gates</string>
 
     <!-- Audio Guide -->
     <string name="audio_guide_title">Mewari Heritage Audio Guide</string>
@@ -28,20 +40,22 @@
     <string name="speech_rate_normal">1.0x Speed</string>
     <string name="speech_rate_slow">0.85x Speed</string>
     <string name="speech_rate_fast">1.2x Speed</string>
+    <string name="all_audio_stories">All Audio Stories (10 Landmarks)</string>
+    <string name="audio_story_meta">🎧 2 min story • Mewar Heritage</string>
 
     <!-- Tours & Itineraries -->
     <string name="itineraries_title">Curated Fort Circuits</string>
     <string name="itineraries_subtitle">Self-guided walking &amp; driving routes designed for tourists</string>
-    <string name="start_tour_in_maps">Start Circuit in Google Maps</string>
+    <string name="start_tour_in_maps">Start Tour in Google Maps</string>
 
     <!-- Services & Info -->
     <string name="services_title">Tourist Services &amp; Essentials</string>
     <string name="services_subtitle">Verified guides, sanitized cabs, ASI tickets &amp; fort helplines</string>
     <string name="book_guide_whatsapp">Book Verified Guide via WhatsApp</string>
     <string name="book_taxi_whatsapp">Book Fort / Udaipur Taxi</string>
-    <string name="call_tourist_helpline">Call Tourist Helpline</string>
-    <string name="call_fort_control">Fort Control Room</string>
-    <string name="call_police">Tourist Police (112)</string>
+    <string name="call_tourist_helpline">Helpline</string>
+    <string name="call_fort_control">Control Room</string>
+    <string name="call_police">Police (112)</string>
     <string name="call_ambulance">Ambulance (108)</string>
 
     <!-- Ticket & Timings -->
@@ -49,13 +63,42 @@
     <string name="tickets_info">Indian Citizens: ₹40 | Foreign Tourists: ₹600&#10;SAARC / BIMSTEC: ₹40 | Children &lt; 15 yrs: Free</string>
     <string name="light_sound_info">Sound &amp; Light Show at Kumbha Palace:&#10;Hindi Show: 7:00 PM | English Show: 8:00 PM&#10;Ticket: ₹50 – ₹100 per person</string>
 
+    <!-- Drawer Navigation -->
+    <string name="drawer_sites">Citadel Attractions &amp; Sites</string>
+    <string name="drawer_audio_guide">Audio Guide &amp; Stories</string>
+    <string name="drawer_tour_circuits">Curated Tour Circuits</string>
+    <string name="drawer_cabs_guides">Cabs, Guides &amp; Services</string>
+    <string name="drawer_vip_section">👑 VIP &amp; Foreign Guest Packages</string>
+    <string name="drawer_vip_package">VIP Foreign Guest Package (~$35 USD)</string>
+    <string name="drawer_photo_tour">Sunrise &amp; Golden Hour Photo Tour</string>
+    <string name="drawer_visitor_essentials">Visitor Essentials</string>
+    <string name="drawer_asi_tickets">ASI Timings &amp; Tickets</string>
+    <string name="drawer_book_cab">Book Private Cab</string>
+    <string name="drawer_helpline_112">Emergency Helplines (112)</string>
+    <string name="drawer_connect_support">Connect &amp; Support</string>
+    <string name="drawer_whatsapp_support">WhatsApp Support</string>
+    <string name="drawer_official_website">Visit Official Website</string>
+    <string name="drawer_language_opt">🌐 Change Language / भाषा</string>
+
     <!-- Actions -->
     <string name="action_directions">Directions</string>
-    <string name="action_audio">Listen Audio</string>
+    <string name="action_audio">Audio Guide</string>
     <string name="action_details">View Details</string>
     <string name="action_share">Share</string>
     <string name="action_saved">Saved to Favorites</string>
     <string name="action_removed">Removed from Favorites</string>
+
+    <!-- Monument Detail Screen -->
+    <string name="detail_title">Monument Details</string>
+    <string name="detail_audio_narration">Audio Narration</string>
+    <string name="detail_about_monument">About Monument</string>
+    <string name="detail_history_heritage">History &amp; Heritage</string>
+    <string name="detail_architectural_marvel">Architectural Marvel</string>
+    <string name="detail_highlights">Key Highlights</string>
+    <string name="detail_visitor_guide">Visitor Guide</string>
+    <string name="detail_timings">Timings</string>
+    <string name="detail_entry_fee">Entry Fee</string>
+    <string name="detail_best_time">Best Time to Visit</string>
 
     <!-- Offline Helplines -->
     <string name="helpline_phone">+91 7597451057</string>
